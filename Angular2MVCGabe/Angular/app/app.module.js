@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var home_component_1 = require("./Components/home.component");
+var employee_service_1 = require("./Service/employee.service");
 var INITIAL_COMPONENTS = [app_component_1.AppComponent, home_component_1.HomeComponent];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -22,7 +23,7 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing],
             declarations: [INITIAL_COMPONENTS],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

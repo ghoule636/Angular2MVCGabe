@@ -23,7 +23,7 @@ var EmployeeService = /** @class */ (function () {
         return this._http.get("" + this.Url);
     };
     EmployeeService.prototype.getEmployee = function (id) {
-        return this._http.get(this.Url + "(" + id + ")");
+        return this._http.get(this.Url + "(" + id + ")?$count=true");
         //TODO: tried to get some error handling but it's not going perfectly so I'll return here later.
         // .catch((err: HttpErrorResponse) => { 
         //   console.error('An error occured: ', err.error);

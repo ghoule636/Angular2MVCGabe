@@ -10,7 +10,7 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/common/http");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var home_component_1 = require("./Components/home.component");
@@ -21,7 +21,7 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing],
+            imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpClientModule, app_routing_1.routing],
             declarations: [INITIAL_COMPONENTS],
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]

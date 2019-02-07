@@ -1,11 +1,6 @@
 ﻿using Angular2MVC.Model.db;
-using Microsoft.AspNet.OData;
-using Microsoft.Data.Edm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Http.OData.Builder;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.OData.Edm;
 
 namespace Angular2MVC.Model
 {
@@ -13,7 +8,7 @@ namespace Angular2MVC.Model
     {
         public static IEdmModel GetEdmModel()
         {
-            ODataModelBuilder builder = new ODataConventionModelBuilder();
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<Employee>("Employees");
             builder.EntitySet<Address>("Addresses");
             builder.EntitySet<Company>("Companies");

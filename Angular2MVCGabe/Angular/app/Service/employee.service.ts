@@ -21,12 +21,12 @@ export class EmployeeService {
 
   constructor(private _http: HttpClient) { }
 
-  getAllEmployees(): Observable<Employee[]> {
+  getAllEmployees(): Observable<any> {
     return this._http.get<any>(`${this.Url}`);
   }
 
-  getEmployee(id: number): Observable<Employee> {
-    return this._http.get<any>(`${this.Url}(${id})`)
+  getEmployee(id: number): Observable<any> {
+    return this._http.get<any>(`${this.Url}(${id})?$count=true`)
     //TODO: tried to get some error handling but it's not going perfectly so I'll return here later.
     // .catch((err: HttpErrorResponse) => { 
     //   console.error('An error occured: ', err.error);

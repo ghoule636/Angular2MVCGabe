@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Angular2MVC.Model;
+using Newtonsoft.Json;
 
 namespace Angular2MVCGabe
 {
@@ -24,6 +21,7 @@ namespace Angular2MVCGabe
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
             //Initializes the database with mock data if the model is changed.           
             Database.SetInitializer(new EntityInitializer());
         }

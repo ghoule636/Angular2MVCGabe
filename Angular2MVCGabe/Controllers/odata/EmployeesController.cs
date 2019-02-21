@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Routing;
 using Angular2MVC.Model.db;
+using Microsoft.AspNet.OData;
 
 namespace Angular2MVCGabe.Controllers.odata
 {
@@ -47,7 +41,7 @@ namespace Angular2MVCGabe.Controllers.odata
         // PUT: odata/Employees(5)
         public IHttpActionResult Put([FromODataUri] int key, Delta<Employee> patch)
         {
-            Validate(patch.GetEntity());
+            //Validate(patch.GetEntity());
 
             if (!ModelState.IsValid)
             {
@@ -99,7 +93,7 @@ namespace Angular2MVCGabe.Controllers.odata
         [AcceptVerbs("PATCH", "MERGE")]
         public IHttpActionResult Patch([FromODataUri] int key, Delta<Employee> patch)
         {
-            Validate(patch.GetEntity());
+            //Validate(patch.GetEntity());
 
             if (!ModelState.IsValid)
             {

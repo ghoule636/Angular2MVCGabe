@@ -1,0 +1,31 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Employee Management
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <div class='col-sm-4'>
+                <button class='btn btn-primary' (click)="addEmployee()">Add</button>
+            </div>
+            <div class='alert alert-info' role='alert' *ngIf='indicateLoading'>
+                <img src='../../../images/loading.gif' width='32' height='32'/> Loading...
+            </div>
+            <table class='table table-striped' *ngIf='employees && employees.length'>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                    </tr>                    
+                </thead>
+                <tbody>
+                    <tr *ngFor='let employee of employees'>
+                        <td>{{employee.FirstName}}</td>
+                        <td>{{employee.Surname}}</td>
+                        <td>{{employee.Email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

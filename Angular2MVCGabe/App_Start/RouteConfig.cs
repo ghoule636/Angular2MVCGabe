@@ -15,7 +15,7 @@ namespace Angular2MVCGabe
 
             routes.MapRoute(
                 name: "Default",
-                url: "{*anything}",
+                url: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

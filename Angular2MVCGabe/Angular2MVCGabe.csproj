@@ -261,7 +261,6 @@
     <TypeScriptCompile Include="Angular\app\app.component.ts" />
     <TypeScriptCompile Include="Angular\app\app.module.ts" />
     <TypeScriptCompile Include="Angular\app\app.routing.ts" />
-    <TypeScriptCompile Include="Angular\app\Components\home.component.ts" />
     <TypeScriptCompile Include="Angular\app\main.ts" />
   </ItemGroup>
   <ItemGroup>

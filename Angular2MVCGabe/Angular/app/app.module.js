@@ -13,10 +13,9 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
-var home_component_1 = require("./Components/home.component");
 var employee_service_1 = require("./Service/employee.service");
 var employee_component_1 = require("./Components/employee.component");
-var INITIAL_COMPONENTS = [app_component_1.AppComponent, home_component_1.HomeComponent, employee_component_1.EmployeeComponent];
+var INITIAL_COMPONENTS = [app_component_1.AppComponent, employee_component_1.EmployeeComponent];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }

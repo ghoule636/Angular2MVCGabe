@@ -5,11 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { HomeComponent } from './Components/home.component';
 import { EmployeeService } from './Service/employee.service';
 import { EmployeeComponent } from './Components/employee.component';
 
-let INITIAL_COMPONENTS = [AppComponent, HomeComponent, EmployeeComponent]
+let INITIAL_COMPONENTS = [AppComponent, EmployeeComponent]
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, routing],

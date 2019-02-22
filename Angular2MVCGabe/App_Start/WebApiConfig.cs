@@ -17,7 +17,7 @@ namespace Angular2MVCGabe
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
+            // OData routes
             config.MapODataServiceRoute("ODataRoute", "odata", ODataModel.GetEdmModel());
 
             config.Routes.MapHttpRoute(

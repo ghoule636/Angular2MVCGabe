@@ -3,7 +3,7 @@ import { EmployeeService, Employee } from '../Service/employee.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
-    templateUrl: 'Angular/app/Components/employee.template.html'
+    templateUrl: '../Angular/app/Components/employee.template.html'
 })
 
 export class EmployeeComponent implements OnInit {
@@ -27,7 +27,7 @@ export class EmployeeComponent implements OnInit {
     getEmployees(): void {
         this.indicateLoading = true;
         this.employeeService.getAllEmployees().subscribe( response => {
-            this.employees = response.values;
+            this.employees = response.value;
             this.indicateLoading = false;
         });
     }
@@ -36,7 +36,7 @@ export class EmployeeComponent implements OnInit {
         console.log("Add Employee!")
     }
 
-    SetControlsSate(isEnable: boolean) {
+    SetControlsState(isEnable: boolean) {
         isEnable ? this.employeeForm.enable() : this.employeeForm.disable();
     }
 }

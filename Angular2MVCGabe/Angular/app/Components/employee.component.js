@@ -31,19 +31,19 @@ var EmployeeComponent = /** @class */ (function () {
         var _this = this;
         this.indicateLoading = true;
         this.employeeService.getAllEmployees().subscribe(function (response) {
-            _this.employees = response.values;
+            _this.employees = response.value;
             _this.indicateLoading = false;
         });
     };
     EmployeeComponent.prototype.addEmployee = function () {
         console.log("Add Employee!");
     };
-    EmployeeComponent.prototype.SetControlsSate = function (isEnable) {
+    EmployeeComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.employeeForm.enable() : this.employeeForm.disable();
     };
     EmployeeComponent = __decorate([
         core_1.Component({
-            templateUrl: 'Angular/app/Components/employee.template.html'
+            templateUrl: '../Angular/app/Components/employee.template.html'
         }),
         __metadata("design:paramtypes", [forms_1.FormBuilder, employee_service_1.EmployeeService])
     ], EmployeeComponent);

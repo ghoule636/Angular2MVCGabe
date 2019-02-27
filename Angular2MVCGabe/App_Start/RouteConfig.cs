@@ -13,6 +13,12 @@ namespace Angular2MVCGabe
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            /**
+             * This line is used to remove the error when the page requests a favicon when using castle Windsor.
+             * https://github.com/castleproject/Windsor/blob/master/docs/mvc-tutorial-part-2-plugging-windsor-in.md
+             **/
+            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",

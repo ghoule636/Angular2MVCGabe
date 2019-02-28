@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/fontawesome")
     @Scripts.Render("~/bundles/modernizr")
     <script src="/node_modules/core-js/client/shim.min.js"></script>
     <script src="/node_modules/zone.js/dist/zone.js"></script>
@@ -12,28 +13,30 @@
     <script src="/systemjs.config.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("Gabe's Tech Demo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Admin
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Employee", "Employee", "Admin")</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        @Html.ActionLink("Gabe's Tech Demo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Content("~/Home/About")">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Content("~/Home/Contact")">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="@Url.Content("~/Admin/Employee")">Employee</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -41,7 +44,6 @@
             <p>&copy; @DateTime.Now.Year - Gabe's Tech Demo</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

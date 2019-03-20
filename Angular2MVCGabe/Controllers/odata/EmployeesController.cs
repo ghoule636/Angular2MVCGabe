@@ -141,6 +141,7 @@ namespace Angular2MVCGabe.Controllers.odata
 
             db.Employees.Remove(employee);
             db.SaveChanges();
+            Logger.InfoFormat("{0} was removed from the database!", employee);
 
             return StatusCode(HttpStatusCode.NoContent);
         }

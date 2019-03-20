@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using Angular2MVC.Model.db;
+using Castle.Core.Logging;
 using Microsoft.AspNet.OData;
 
 namespace Angular2MVCGabe.Controllers.odata
@@ -23,6 +24,7 @@ namespace Angular2MVCGabe.Controllers.odata
     public class EmployeesController : ODataController
     {
         private EntityContext db = new EntityContext();
+        public ILogger Logger { get; set; } = NullLogger.Instance;
 
         // GET: odata/Employees
         [EnableQuery]
@@ -45,6 +47,7 @@ namespace Angular2MVCGabe.Controllers.odata
 
             if (!ModelState.IsValid)
             {
+                Logger.WarnFormat("Employee {0} was attempted to be added to the database. It had the following ModelState: {1}", patch, ModelState);
                 return BadRequest(ModelState);
             }
 
@@ -169,5 +172,6 @@ namespace Angular2MVCGabe.Controllers.odata
         {
             return db.Employees.Count(e => e.ID == key) > 0;
         }
+
     }
 }

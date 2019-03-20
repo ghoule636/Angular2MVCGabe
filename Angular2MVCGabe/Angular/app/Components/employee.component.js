@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("../Service/employee.service");
 var forms_1 = require("@angular/forms");
-var EmployeeComponent = /** @class */ (function () {
+var EmployeeComponent = (function () {
     function EmployeeComponent(formBuilder, employeeService) {
         this.formBuilder = formBuilder;
         this.employeeService = employeeService;
@@ -41,13 +40,13 @@ var EmployeeComponent = /** @class */ (function () {
     EmployeeComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.employeeForm.enable() : this.employeeForm.disable();
     };
-    EmployeeComponent = __decorate([
-        core_1.Component({
-            templateUrl: '../Angular/app/Components/employee.template.html'
-        }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, employee_service_1.EmployeeService])
-    ], EmployeeComponent);
     return EmployeeComponent;
 }());
+EmployeeComponent = __decorate([
+    core_1.Component({
+        templateUrl: '../Angular/app/Components/employee.template.html'
+    }),
+    __metadata("design:paramtypes", [forms_1.FormBuilder, employee_service_1.EmployeeService])
+], EmployeeComponent);
 exports.EmployeeComponent = EmployeeComponent;
 //# sourceMappingURL=employee.component.js.map

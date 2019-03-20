@@ -24,7 +24,9 @@ namespace Angular2MVCGabe
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/simpleSidebar.css",
+                      "~/Content/gabeStyles.css"));
 
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                 "~/Content/font-awesome.css"

@@ -17,7 +17,7 @@ var employee_service_1 = require("./Service/employee.service");
 var employee_component_1 = require("./Components/employee.component");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var INITIAL_COMPONENTS = [app_component_1.AppComponent, employee_component_1.EmployeeComponent];
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([

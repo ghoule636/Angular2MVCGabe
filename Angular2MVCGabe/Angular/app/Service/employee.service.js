@@ -14,7 +14,7 @@ var http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
-var EmployeeService = /** @class */ (function () {
+var EmployeeService = (function () {
     function EmployeeService(_http) {
         this._http = _http;
         this.Url = "/odata/Employees";

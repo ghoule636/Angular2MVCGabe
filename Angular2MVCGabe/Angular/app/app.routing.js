@@ -7,5 +7,5 @@ var appRoutes = [
     { path: 'Admin/Employee', component: employee_component_1.EmployeeComponent }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
-// export const mainState = {name: 'main', url: '', component: EmployeeComponent}
+// export const mainState = {name: 'main', url: '', component: EmployeeComponent} 
 //# sourceMappingURL=app.routing.js.map

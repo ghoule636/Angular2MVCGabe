@@ -17,11 +17,11 @@ export class EmployeeComponent implements OnInit {
     employees: Employee[];
     //form to control the employee details
     employeeForm: FormGroup
+    test: string;
 
     constructor(private formBuilder: FormBuilder, private employeeService: EmployeeService, private ngbConfig: NgbPaginationConfig) {
-        //sets default page to 1
+        // settings for the pagination
         this.currentPage = 1;
-        // sets page size to 12
         ngbConfig.pageSize = 12;
         ngbConfig.size = 'sm';
         ngbConfig.boundaryLinks = true;
@@ -51,6 +51,17 @@ export class EmployeeComponent implements OnInit {
 
     addEmployee(): void {
         console.log("Add Employee!")
+    }
+
+    pageChanged(page: number): void {
+        this.currentPage = page;
+        //This string is the odata query values it is used to skip the correct amount of 
+        //employees to ensure we load the correct pagination values.
+        let queryString = `?$orderby=FirstName&$top=${this.ngbConfig.pageSize}&$skip=`;
+        queryString += `${(this.currentPage - 1) * this.ngbConfig.pageSize}`;
+        this.employeeService.getAllEmployees(queryString).subscribe( response => {
+            this.employees = response.value;
+        });
     }
 
     SetControlsState(isEnable: boolean) {

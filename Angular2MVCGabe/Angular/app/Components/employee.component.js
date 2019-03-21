@@ -13,16 +13,15 @@ var core_1 = require("@angular/core");
 var employee_service_1 = require("../Service/employee.service");
 var forms_1 = require("@angular/forms");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
-var EmployeeComponent = /** @class */ (function () {
+var EmployeeComponent = (function () {
     function EmployeeComponent(formBuilder, employeeService, ngbConfig) {
         this.formBuilder = formBuilder;
         this.employeeService = employeeService;
         this.ngbConfig = ngbConfig;
         //set to true to display loading animation
         this.indicateLoading = false;
-        //sets default page to 1
+        // settings for the pagination
         this.currentPage = 1;
-        // sets page size to 12
         ngbConfig.pageSize = 12;
         ngbConfig.size = 'sm';
         ngbConfig.boundaryLinks = true;
@@ -50,6 +49,17 @@ var EmployeeComponent = /** @class */ (function () {
     };
     EmployeeComponent.prototype.addEmployee = function () {
         console.log("Add Employee!");
+    };
+    EmployeeComponent.prototype.pageChanged = function (page) {
+        var _this = this;
+        this.currentPage = page;
+        //This string is the odata query values it is used to skip the correct amount of 
+        //employees to ensure we load the correct pagination values.
+        var queryString = "?$orderby=FirstName&$top=" + this.ngbConfig.pageSize + "&$skip=";
+        queryString += "" + (this.currentPage - 1) * this.ngbConfig.pageSize;
+        this.employeeService.getAllEmployees(queryString).subscribe(function (response) {
+            _this.employees = response.value;
+        });
     };
     EmployeeComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.employeeForm.enable() : this.employeeForm.disable();

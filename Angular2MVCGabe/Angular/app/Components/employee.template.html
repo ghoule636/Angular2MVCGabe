@@ -1,7 +1,4 @@
-﻿<div id="toggle-button">
-    <button class="btn btn-lg btn-toggle" type="button" data-toggle="collapse" href="#wrapper"><span class="fa fa-angle-right"></span></button>
-</div>
-<div id="wrapper" class="toggled collapse">
+﻿<div id="wrapper" class="toggled collapse show">
     <div id="sidebar-wrapper">
         <div class='col-sm-12 element-space'>
             <button class='btn btn-primary col-sm-12 element-space' (click)="addEmployee()">Add</button>
@@ -15,8 +12,12 @@
         <div class="col-sm-12" *ngIf='!indicateLoading'>
             <ngb-pagination
                 class="pagination-sm"
+                (pageChange)="pageChanged($event)"
                 [(page)]="currentPage"
                 [collectionSize]="totalItems"></ngb-pagination>
         </div>
     </div>
+</div>
+<div id="toggle-button">
+    <button class="btn btn-lg btn-toggle" type="button" id="menu-toggle" data-toggle="collapse" href="#wrapper"><span class="fa fa-angle-right"></span></button>
 </div>

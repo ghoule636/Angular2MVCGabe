@@ -7,7 +7,7 @@
             <img src='../../../images/loading.gif' width='32' height='32' /> Loading...
         </div>
         <div class="list-unstyled col-sm-12" *ngFor="let employee of employees">
-            <button type="button" class="list-group-item col-sm-12">{{employee.FirstName}} {{employee.Surname}}</button>
+            <button type="button" class="list-group-item col-sm-12" (click)="selectEmployee(employee)">{{employee.FirstName}} {{employee.Surname}}</button>
         </div>
         <div class="col-sm-12" *ngIf='!indicateLoading'>
             <ngb-pagination
@@ -20,4 +20,8 @@
 </div>
 <div id="toggle-button">
     <button class="btn btn-lg btn-toggle" type="button" id="menu-toggle" data-toggle="collapse" href="#wrapper"><span class="fa fa-angle-right"></span></button>
+</div>
+
+<div id="page-content-wrapper">
+    <ui-view></ui-view>
 </div>

@@ -1,12 +1,18 @@
-﻿import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { EmployeeComponent } from './Components/employee.component';
+﻿import { EmployeeComponent } from './Components/employee.component';
+import { EditEmployeeComponent } from './Components/edit-employee.component';
+import { Transition } from '@uirouter/core';
 
-const appRoutes: Routes = [
-    { path: 'Admin', redirectTo: 'Admin/Employee', pathMatch: 'full' },
-    { path: 'Admin/Employee', component: EmployeeComponent}
-];
+export const mainState = {name: 'main', url: '', component: EmployeeComponent}
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
-
-// export const mainState = {name: 'main', url: '', component: EmployeeComponent}
+export const detailState= {
+    name:'main.employee',
+    url: '/:employeeID',
+    component: EditEmployeeComponent,
+    resolve: [
+        {
+            token: 'stateParams',
+            deps: [Transition],
+            resolveFn: (trans: Transition) => trans.params()
+        }
+    ]
+}

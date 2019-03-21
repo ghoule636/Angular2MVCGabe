@@ -215,6 +215,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Angular\app\Components\edit-employee.component.ts" />
+    <Content Include="Angular\app\Components\edit-employee.template.html" />
     <Content Include="Angular\app\Components\employee.component.ts" />
     <Content Include="Angular\app\Components\employee.template.html" />
     <Content Include="Angular\app\Service\address.service.ts" />

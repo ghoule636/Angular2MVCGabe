@@ -13,11 +13,13 @@ var core_1 = require("@angular/core");
 var employee_service_1 = require("../Service/employee.service");
 var forms_1 = require("@angular/forms");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var core_2 = require("@uirouter/core");
 var EmployeeComponent = (function () {
-    function EmployeeComponent(formBuilder, employeeService, ngbConfig) {
+    function EmployeeComponent(formBuilder, employeeService, ngbConfig, stateService) {
         this.formBuilder = formBuilder;
         this.employeeService = employeeService;
         this.ngbConfig = ngbConfig;
+        this.stateService = stateService;
         //set to true to display loading animation
         this.indicateLoading = false;
         // settings for the pagination
@@ -50,6 +52,10 @@ var EmployeeComponent = (function () {
     EmployeeComponent.prototype.addEmployee = function () {
         console.log("Add Employee!");
     };
+    EmployeeComponent.prototype.selectEmployee = function (selectedEmployee) {
+        this.employeeService.setCurrentEmployee(selectedEmployee);
+        this.stateService.go('main.employee', { employeeID: selectedEmployee.ID });
+    };
     EmployeeComponent.prototype.pageChanged = function (page) {
         var _this = this;
         this.currentPage = page;
@@ -68,7 +74,10 @@ var EmployeeComponent = (function () {
         core_1.Component({
             templateUrl: '../Angular/app/Components/employee.template.html'
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, employee_service_1.EmployeeService, ng_bootstrap_1.NgbPaginationConfig])
+        __metadata("design:paramtypes", [forms_1.FormBuilder,
+            employee_service_1.EmployeeService,
+            ng_bootstrap_1.NgbPaginationConfig,
+            core_2.StateService])
     ], EmployeeComponent);
     return EmployeeComponent;
 }());

@@ -19,6 +19,12 @@ var EmployeeService = (function () {
         this._http = _http;
         this.Url = "/odata/Employees";
     }
+    EmployeeService.prototype.setCurrentEmployee = function (employee) {
+        this.currentEmployee = employee;
+    };
+    EmployeeService.prototype.getCurrentEmployee = function () {
+        return this.currentEmployee;
+    };
     EmployeeService.prototype.getAllEmployees = function (queryParams) {
         return this._http.get("" + this.Url + queryParams);
     };

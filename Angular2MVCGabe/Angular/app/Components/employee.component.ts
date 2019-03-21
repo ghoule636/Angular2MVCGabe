@@ -2,6 +2,7 @@
 import { EmployeeService, Employee } from '../Service/employee.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
+import { StateService } from "@uirouter/core";
 
 @Component({
     templateUrl: '../Angular/app/Components/employee.template.html'
@@ -19,7 +20,10 @@ export class EmployeeComponent implements OnInit {
     employeeForm: FormGroup
     test: string;
 
-    constructor(private formBuilder: FormBuilder, private employeeService: EmployeeService, private ngbConfig: NgbPaginationConfig) {
+    constructor(private formBuilder: FormBuilder,
+                private employeeService: EmployeeService,
+                private ngbConfig: NgbPaginationConfig,
+                private stateService: StateService) {
         // settings for the pagination
         this.currentPage = 1;
         ngbConfig.pageSize = 12;
@@ -51,6 +55,11 @@ export class EmployeeComponent implements OnInit {
 
     addEmployee(): void {
         console.log("Add Employee!")
+    }
+
+    selectEmployee(selectedEmployee: Employee): void {
+        this.employeeService.setCurrentEmployee(selectedEmployee);
+        this.stateService.go('main.employee', {employeeID: selectedEmployee.ID});
     }
 
     pageChanged(page: number): void {

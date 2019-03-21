@@ -7,24 +7,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
+var angular_1 = require("@uirouter/angular");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var employee_service_1 = require("./Service/employee.service");
 var employee_component_1 = require("./Components/employee.component");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
-var INITIAL_COMPONENTS = [app_component_1.AppComponent, employee_component_1.EmployeeComponent];
+var edit_employee_component_1 = require("./Components/edit-employee.component");
+var INITIAL_COMPONENTS = [app_component_1.AppComponent, employee_component_1.EmployeeComponent, edit_employee_component_1.EditEmployeeComponent];
+var INITIAL_STATES = [app_routing_1.mainState, app_routing_1.detailState];
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpClientModule, app_routing_1.routing, ng_bootstrap_1.NgbPaginationModule],
+            imports: [
+                platform_browser_1.BrowserModule,
+                forms_1.ReactiveFormsModule,
+                http_1.HttpClientModule,
+                ng_bootstrap_1.NgbPaginationModule,
+                angular_1.UIRouterModule.forRoot({
+                    states: INITIAL_STATES,
+                    useHash: true
+                })
+            ],
             declarations: [INITIAL_COMPONENTS],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, employee_service_1.EmployeeService, ng_bootstrap_1.NgbPaginationConfig],
+            providers: [employee_service_1.EmployeeService, ng_bootstrap_1.NgbPaginationConfig],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

@@ -18,8 +18,18 @@ export interface Employee {
 export class EmployeeService {
 
   private readonly Url = "/odata/Employees"
+  private currentEmployee: Employee;
+
 
   constructor(private _http: HttpClient) { }
+
+  setCurrentEmployee(employee: Employee): void {
+    this.currentEmployee = employee;
+  }
+
+  getCurrentEmployee(): Employee {
+      return this.currentEmployee;
+  }
 
   getAllEmployees(queryParams: string): Observable<any> {
     return this._http.get<any>(`${this.Url}${queryParams}`);

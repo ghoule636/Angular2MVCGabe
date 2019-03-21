@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core"
 @Component({
     selector: "employee-app",
-    template: `<router-outlet></router-outlet>`
+    template: `<ui-view></ui-view>`
 })
 
 export class AppComponent {

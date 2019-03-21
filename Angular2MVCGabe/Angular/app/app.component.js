@@ -13,7 +13,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "employee-app",
-            template: "<router-outlet></router-outlet>"
+            template: "<ui-view></ui-view>"
         })
     ], AppComponent);
     return AppComponent;

@@ -8,14 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("../Service/employee.service");
 var forms_1 = require("@angular/forms");
-var EmployeeComponent = (function () {
-    function EmployeeComponent(formBuilder, employeeService) {
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var EmployeeComponent = /** @class */ (function () {
+    function EmployeeComponent(formBuilder, employeeService, ngbConfig) {
         this.formBuilder = formBuilder;
         this.employeeService = employeeService;
+        this.ngbConfig = ngbConfig;
+        //set to true to display loading animation
         this.indicateLoading = false;
+        //sets default page to 1
+        this.currentPage = 1;
+        // sets page size to 12
+        ngbConfig.pageSize = 12;
+        ngbConfig.size = 'sm';
+        ngbConfig.boundaryLinks = true;
+        ngbConfig.rotate = true;
+        ngbConfig.maxSize = 3;
+        ngbConfig.ellipses = false;
     }
     EmployeeComponent.prototype.ngOnInit = function () {
         this.employeeForm = this.formBuilder.group({
@@ -29,8 +42,9 @@ var EmployeeComponent = (function () {
     EmployeeComponent.prototype.getEmployees = function () {
         var _this = this;
         this.indicateLoading = true;
-        this.employeeService.getAllEmployees().subscribe(function (response) {
+        this.employeeService.getAllEmployees("?$orderby=FirstName&$top=" + this.ngbConfig.pageSize + "&$count=true").subscribe(function (response) {
             _this.employees = response.value;
+            _this.totalItems = response['@odata.count'];
             _this.indicateLoading = false;
         });
     };
@@ -40,13 +54,13 @@ var EmployeeComponent = (function () {
     EmployeeComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.employeeForm.enable() : this.employeeForm.disable();
     };
+    EmployeeComponent = __decorate([
+        core_1.Component({
+            templateUrl: '../Angular/app/Components/employee.template.html'
+        }),
+        __metadata("design:paramtypes", [forms_1.FormBuilder, employee_service_1.EmployeeService, ng_bootstrap_1.NgbPaginationConfig])
+    ], EmployeeComponent);
     return EmployeeComponent;
 }());
-EmployeeComponent = __decorate([
-    core_1.Component({
-        templateUrl: '../Angular/app/Components/employee.template.html'
-    }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder, employee_service_1.EmployeeService])
-], EmployeeComponent);
 exports.EmployeeComponent = EmployeeComponent;
 //# sourceMappingURL=employee.component.js.map

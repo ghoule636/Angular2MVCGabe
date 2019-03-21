@@ -11,6 +11,8 @@ namespace Angular2MVC.Model.db
 {
     [Table("Employee")]
     [Count]
+    [Page]
+    [OrderBy]
     public class Employee
     {
         [Key]

@@ -8,21 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
-var EmployeeService = (function () {
+var EmployeeService = /** @class */ (function () {
     function EmployeeService(_http) {
         this._http = _http;
         this.Url = "/odata/Employees";
     }
-    EmployeeService.prototype.getAllEmployees = function () {
-        return this._http.get("" + this.Url);
+    EmployeeService.prototype.getAllEmployees = function (queryParams) {
+        return this._http.get("" + this.Url + queryParams);
     };
     EmployeeService.prototype.getEmployee = function (id) {
-        return this._http.get(this.Url + "(" + id + ")?$count=true");
+        return this._http.get(this.Url + "(" + id + ")");
         //TODO: tried to get some error handling but it's not going perfectly so I'll return here later.
         // .catch((err: HttpErrorResponse) => { 
         //   console.error('An error occured: ', err.error);
@@ -33,11 +34,11 @@ var EmployeeService = (function () {
         //   ]);
         // });
     };
+    EmployeeService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], EmployeeService);
     return EmployeeService;
 }());
-EmployeeService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.HttpClient])
-], EmployeeService);
 exports.EmployeeService = EmployeeService;
 //# sourceMappingURL=employee.service.js.map

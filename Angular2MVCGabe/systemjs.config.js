@@ -26,10 +26,11 @@
             // other libraries
             'tslib': 'npm:tslib/tslib.js',
             'rxjs': 'npm:rxjs',
-            'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-            '@uirouter/angular':         'npm:@uirouter/angular/_bundles/ui-router-ng2.js',
-            '@uirouter/core':            'npm:@uirouter/core/_bundles/ui-router-core.js',
-            '@uirouter/rx':              'npm:@uirouter/rx/_bundles/ui-router-rx.js'
+            'angular-in-memory-web-api':  'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+            '@uirouter/angular':          'npm:@uirouter/angular/_bundles/ui-router-ng2.js',
+            '@uirouter/core':             'npm:@uirouter/core/_bundles/ui-router-core.js',
+            '@uirouter/rx':               'npm:@uirouter/rx/_bundles/ui-router-rx.js',
+            '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

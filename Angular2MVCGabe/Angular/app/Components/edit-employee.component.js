@@ -13,7 +13,28 @@ var core_1 = require("@angular/core");
 var core_2 = require("@uirouter/core");
 var employee_service_1 = require("../Service/employee.service");
 var forms_1 = require("@angular/forms");
-var EditEmployeeComponent = (function () {
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var ModalDeleteEmployee = /** @class */ (function () {
+    function ModalDeleteEmployee(activeModal) {
+        this.activeModal = activeModal;
+    }
+    ModalDeleteEmployee.prototype.ngOnInit = function () {
+        console.log(this.employee);
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], ModalDeleteEmployee.prototype, "employee", void 0);
+    ModalDeleteEmployee = __decorate([
+        core_1.Component({
+            templateUrl: '../Angular/app/Components/modal-delete-employee.html'
+        }),
+        __metadata("design:paramtypes", [ng_bootstrap_1.NgbActiveModal])
+    ], ModalDeleteEmployee);
+    return ModalDeleteEmployee;
+}());
+exports.ModalDeleteEmployee = ModalDeleteEmployee;
+var EditEmployeeComponent = /** @class */ (function () {
     function EditEmployeeComponent(employeeService, fb) {
         this.employeeService = employeeService;
         this.fb = fb;

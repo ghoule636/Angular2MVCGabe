@@ -18,12 +18,14 @@ export class EmployeeComponent implements OnInit {
     employees: Employee[];
     //form to control the employee details
     employeeForm: FormGroup
-    test: string;
+    //controls whether to display or hide the sidebar menu
+    sidebarActive: boolean;
 
     constructor(private formBuilder: FormBuilder,
                 private employeeService: EmployeeService,
                 private ngbConfig: NgbPaginationConfig,
                 private stateService: StateService) {
+        this.sidebarActive = false;
         // settings for the pagination
         this.currentPage = 1;
         ngbConfig.pageSize = 12;
@@ -42,6 +44,10 @@ export class EmployeeComponent implements OnInit {
             Email: ['']
         })
         this.getEmployees();
+    }
+
+    toggleSidebar(): void {
+        this.sidebarActive = this.sidebarActive ? false : true;
     }
 
     getEmployees(): void {

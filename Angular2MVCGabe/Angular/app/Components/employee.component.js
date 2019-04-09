@@ -14,7 +14,7 @@ var employee_service_1 = require("../Service/employee.service");
 var forms_1 = require("@angular/forms");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var core_2 = require("@uirouter/core");
-var EmployeeComponent = (function () {
+var EmployeeComponent = /** @class */ (function () {
     function EmployeeComponent(formBuilder, employeeService, ngbConfig, stateService) {
         this.formBuilder = formBuilder;
         this.employeeService = employeeService;
@@ -22,6 +22,7 @@ var EmployeeComponent = (function () {
         this.stateService = stateService;
         //set to true to display loading animation
         this.indicateLoading = false;
+        this.sidebarActive = false;
         // settings for the pagination
         this.currentPage = 1;
         ngbConfig.pageSize = 12;
@@ -39,6 +40,9 @@ var EmployeeComponent = (function () {
             Email: ['']
         });
         this.getEmployees();
+    };
+    EmployeeComponent.prototype.toggleSidebar = function () {
+        this.sidebarActive = this.sidebarActive ? false : true;
     };
     EmployeeComponent.prototype.getEmployees = function () {
         var _this = this;

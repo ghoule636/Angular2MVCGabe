@@ -19,7 +19,7 @@ var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var edit_employee_component_1 = require("./Components/edit-employee.component");
 var INITIAL_COMPONENTS = [app_component_1.AppComponent, employee_component_1.EmployeeComponent, edit_employee_component_1.EditEmployeeComponent];
 var INITIAL_STATES = [app_routing_1.mainState, app_routing_1.detailState];
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([

@@ -1,0 +1,89 @@
+﻿{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+      "Angular2MVCGabe": {
+        "root": "",
+        "sourceRoot": "Angular",
+        "projectType": "application",
+        "prefix": "app",
+        "schematics": {},
+        "architect": {
+          "build": {
+            "builder": "@angular-devkit/build-angular:browser",
+            "options": {
+              "outputPath": "dist",
+              "main": "Angular2MVCGabe/Angular/app/main.ts",
+              "polyfills": "Angular2MVCGabe/Angular/polyfills.ts",
+              "tsConfig": "Angular2MVCGabe/Angular/tsconfig.app.json",
+              "assets": [
+                "Angular2MVCGabe/favicon.ico",
+                "Angular2MVCGabe/images"
+              ],
+              "styles": [
+                "Angular2MVCGabe/Content/gabeStyles.css",
+                "Angular2MVCGabe/Content/bootstrap.min.css",
+                "Angular2MVCGabe/Content/font-awesome.min.css",
+                "Angular2MVCGabe/Content/simpleSidebar.css"
+              ],
+              "scripts": []
+            },
+            "configurations": {
+              "production": {
+                "fileReplacements": [
+                  {
+                    "replace": "Angular2MVCGabe/Angular/environments/environment.ts",
+                    "with": "Angular2MVCGabe/Angular/environments/environment.prod.ts"
+                  }
+                ],
+                "optimization": true,
+                "outputHashing": "all",
+                "sourceMap": false,
+                "extractCss": true,
+                "namedChunks": false,
+                "aot": true,
+                "extractLicenses": true,
+                "vendorChunk": false,
+                "buildOptimizer": true
+              }
+            }
+          },
+          "test": {
+            "builder": "@angular-devkit/build-angular:karma",
+            "options": {
+              "main": "Angular2MVCGabe/Angular/test/test.ts",
+              "polyfills": "Angular2MVCGabe/Angular/polyfills.ts",
+              "tsConfig": "Angular2MVCGabe/Angular/tsconfig.spec.json",
+              "karmaConfig": "Angular2MVCGabe/Angular/test/karma.conf.js",
+              "styles": [
+                "Angular2MVCGabe/Content/gabeStyles.css",
+                "Angular2MVCGabe/Content/bootstrap.css",
+                "Angular2MVCGabe/Content/font-awesome.css",
+                "Angular2MVCGabe/Content/simpleSidebar.css"
+              ],
+              "scripts": [],
+              "assets": [
+                "Angular2MVCGabe/favicon.ico",
+                "Angular2MVCGabe/images"
+              ]
+            }
+          },
+          "lint": {
+            "builder": "@angular-devkit/build-angular:tslint",
+            "options": {
+              "tsConfig": [
+                "src/tsconfig.app.json",
+                "src/tsconfig.spec.json"
+              ],
+              "exclude": [
+                "**/node_modules/**"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "defaultProject": "Angular2MVCGabe"
+  }
+  

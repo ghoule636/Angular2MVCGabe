@@ -215,6 +215,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Angular\EmployeeApp\e2e\protractor.conf.js" />
+    <Content Include="Angular\EmployeeApp\e2e\src\app.e2e-spec.ts" />
+    <Content Include="Angular\EmployeeApp\e2e\src\app.po.ts" />
+    <Content Include="Angular\EmployeeApp\src\app\app.component.css" />
+    <Content Include="Angular\EmployeeApp\src\app\app.component.html" />
+    <Content Include="Angular\EmployeeApp\src\app\app.component.spec.ts" />
+    <Content Include="Angular\EmployeeApp\src\app\app.component.ts" />
+    <Content Include="Angular\EmployeeApp\src\app\app.module.ts" />
+    <Content Include="Angular\EmployeeApp\src\environments\environment.prod.ts" />
+    <Content Include="Angular\EmployeeApp\src\environments\environment.ts" />
+    <Content Include="Angular\EmployeeApp\src\favicon.ico" />
+    <Content Include="Angular\EmployeeApp\src\index.html" />
+    <Content Include="Angular\Shared\karma.conf.js" />
+    <Content Include="Angular\EmployeeApp\src\main.ts" />
+    <Content Include="Angular\Shared\polyfills.ts" />
+    <Content Include="Angular\EmployeeApp\src\styles.css" />
+    <Content Include="Angular\Shared\test.ts" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -229,7 +246,6 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\loading.gif" />
-    <Content Include="package.json" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -248,7 +264,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="package-lock.json" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -261,6 +276,18 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include=".editorconfig" />
+    <Content Include=".gitignore" />
+    <Content Include="Angular\Shared\angular.json" />
+    <Content Include="Angular\EmployeeApp\e2e\tsconfig.e2e.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="Angular\EmployeeApp\src\browserslist" />
+    <Content Include="Angular\EmployeeApp\src\tsconfig.app.json" />
+    <Content Include="Angular\Shared\tsconfig.spec.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="Angular\Shared\tslint.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -280,7 +307,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="systemjs.config.js" />
+    <Content Include="Angular\Shared\systemjs.config.js" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -305,7 +332,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

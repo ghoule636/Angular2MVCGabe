@@ -1,0 +1,25 @@
+﻿<div class="wrapper">
+    <nav id="sidebar" [ngClass]="{'active':sidebarActive}">
+        <div class="col-sm-12 element-space">
+            <button class="btn btn-primary element-space col-sm-12" (click)="addEmployee()">New Employee</button>
+        </div>
+        <div class="list-unstyled col-sm-12" *ngFor="let employee of employees">
+            <button type="button" class="list-group-item col-sm-12" (click)="selectEmployee(employee)">{{employee.FirstName}} {{employee.Surname}}</button>
+        </div>
+        <div class="col-sm-12" *ngIf='!indicateLoading'>
+            <ngb-pagination class="pagination-sm"
+                            (pageChange)="pageChanged($event)"
+                            [(page)]="currentPage"
+                            [collectionSize]="totalItems"></ngb-pagination>
+        </div>
+    </nav>
+    <div id="content" [ngClass]="{'active': sidebarActive}">
+        <button id="sidebarCollapse" class="btn btn-lg" (click)="toggleSidebar()">
+            <span class="fa fa-lg" [ngClass]="{'fa-angle-left': sidebarActive,
+                                               'fa-angle-right': !sidebarActive}"></span>
+        </button>
+        <div id="page-content-wrapper">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

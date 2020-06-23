@@ -219,9 +219,6 @@
     <Content Include="Angular\EmployeeApp\e2e\src\app.e2e-spec.ts" />
     <Content Include="Angular\EmployeeApp\e2e\src\app.po.ts" />
     <Content Include="Angular\EmployeeApp\src\app\app.component.html" />
-    <Content Include="Angular\EmployeeApp\src\app\edit-employee.template.html" />
-    <Content Include="Angular\EmployeeApp\src\app\employee.template.html" />
-    <Content Include="Angular\EmployeeApp\src\app\modal-delete-employee.html" />
     <Content Include="Angular\EmployeeApp\src\environments\environment.prod.ts" />
     <Content Include="Angular\EmployeeApp\src\environments\environment.ts" />
     <Content Include="Angular\EmployeeApp\src\favicon.ico" />
@@ -347,9 +344,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Angular\EmployeeApp\src\app\edit-employee.component.ts" />
-    <Content Include="Angular\EmployeeApp\src\app\employee.component.spec.ts" />
-    <Content Include="Angular\EmployeeApp\src\app\employee.component.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.module.ts" />

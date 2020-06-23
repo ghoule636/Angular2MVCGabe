@@ -223,6 +223,7 @@
     <Content Include="Angular\EmployeeApp\src\environments\environment.ts" />
     <Content Include="Angular\EmployeeApp\src\favicon.ico" />
     <Content Include="Angular\EmployeeApp\src\index.html" />
+    <Content Include="Angular\Admin\EmployeeTestApp\employee.template.html" />
     <Content Include="Angular\Shared\karma.conf.js" />
     <Content Include="Angular\EmployeeApp\src\main.ts" />
     <Content Include="Angular\Shared\polyfills.ts" />
@@ -280,10 +281,10 @@
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="Angular\EmployeeApp\src\browserslist" />
-    <Content Include="Angular\EmployeeApp\src\tsconfig.app.json" />
     <Content Include="Angular\Shared\tsconfig.spec.json" />
     <Content Include="tsconfig.json" />
     <Content Include="Angular\Shared\tslint.json" />
+    <Content Include="Angular\Shared\tsconfig.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -303,7 +304,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Angular\Shared\systemjs.config.js" />
+    <Content Include="Angular\systemjs.config.js" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -347,6 +348,10 @@
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.module.ts" />
+    <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\employee.component.ts" />
+    <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\employee.module.ts" />
+    <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\main.ts" />
+    <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\router.config.ts" />
     <TypeScriptCompile Include="Angular\Services\employee.service.ts" />
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>

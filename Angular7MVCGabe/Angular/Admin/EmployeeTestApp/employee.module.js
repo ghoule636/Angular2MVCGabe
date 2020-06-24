@@ -6,7 +6,7 @@ import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
 import { mainState } from './router.config';
 import { EmployeeTestComponent } from './employee.component';
 import { UIRouterModule } from '@uirouter/angular';
-import { EmployeeService } from '../../Services/employee.service';
+//import { EmployeeService } from '../../Services/employee.service';
 var EmployeeTestConfig = /** @class */ (function () {
     function EmployeeTestConfig() {
     }
@@ -37,7 +37,7 @@ var EmployeeTestModule = /** @class */ (function () {
             ],
             declarations: [INTIAL_COMPONENTS],
             providers: [
-                EmployeeService,
+                //EmployeeService,
                 NgbPaginationConfig
             ],
             bootstrap: [EmployeeTestConfig]

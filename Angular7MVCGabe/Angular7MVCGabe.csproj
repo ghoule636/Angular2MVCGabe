@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -215,6 +215,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Angular\Admin\CompanyTestApp\company.template.html" />
     <Content Include="Angular\EmployeeApp\e2e\protractor.conf.js" />
     <Content Include="Angular\EmployeeApp\e2e\src\app.e2e-spec.ts" />
     <Content Include="Angular\EmployeeApp\e2e\src\app.po.ts" />
@@ -314,6 +315,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\README.md" />
+    <Content Include="Views\Admin\Company.cshtml" />
     <None Include="Views\Admin\Employee.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -345,6 +347,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\company.component.ts" />
+    <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\company.module.ts" />
+    <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\main.ts" />
+    <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\router.config.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.module.ts" />

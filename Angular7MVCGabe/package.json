@@ -23,7 +23,7 @@
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
-    "systemjs": "0.19.40",
+    "systemjs": "0.21.6",
     "@ng-bootstrap/ng-bootstrap": "4.2.2",
     "@uirouter/angular": "4.0.0",
     "primeicons": "^1.0.0",

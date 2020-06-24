@@ -1,12 +1,17 @@
-﻿using System.Web.Mvc;
+using System.Web.Mvc;
 
 namespace Angular2MVCGabe.Controllers
 {
-    public class AdminController : Controller
+  public class AdminController : Controller
+  {
+    public ActionResult Employee()
     {
-        public ActionResult Employee()
-        {
-            return View();
-        }
+      return View();
     }
+
+    public ActionResult Company()
+    {
+      return View();
+    }
+  }
 }

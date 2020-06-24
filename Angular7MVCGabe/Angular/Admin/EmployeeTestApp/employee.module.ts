@@ -5,7 +5,7 @@ import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
 import { mainState } from './router.config';
 import { EmployeeTestComponent } from './employee.component';
 import { UIRouterModule } from '@uirouter/angular';
-import { EmployeeService } from '../../Services/employee.service';
+//import { EmployeeService } from '../../Services/employee.service';
 
 @Component({
   selector: "employee-test-app",
@@ -28,7 +28,7 @@ const INTIAL_COMPONENTS = [EmployeeTestComponent];
   ],
   declarations: [INTIAL_COMPONENTS],
   providers: [
-    EmployeeService,
+    //EmployeeService,
     NgbPaginationConfig
   ],
   bootstrap: [EmployeeTestConfig]

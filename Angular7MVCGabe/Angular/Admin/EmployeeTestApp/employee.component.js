@@ -1,9 +1,9 @@
 import { __decorate, __metadata } from "tslib";
 import { Component } from "@angular/core";
-import { EmployeeService } from '../../Services/employee.service';
+//import { EmployeeService } from '../../Services/employee.service';
 var EmployeeTestComponent = /** @class */ (function () {
-    function EmployeeTestComponent(employeeService) {
-        this.employeeService = employeeService;
+    //constructor(private readonly employeeService: EmployeeService) {
+    function EmployeeTestComponent() {
     }
     EmployeeTestComponent.prototype.ngOnInit = function () {
         // TODO
@@ -15,7 +15,7 @@ var EmployeeTestComponent = /** @class */ (function () {
         Component({
             templateUrl: "./employee.template.html"
         }),
-        __metadata("design:paramtypes", [EmployeeService])
+        __metadata("design:paramtypes", [])
     ], EmployeeTestComponent);
     return EmployeeTestComponent;
 }());

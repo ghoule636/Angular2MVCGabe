@@ -1,49 +1,45 @@
-import { __decorate } from "tslib";
-import { Component, NgModule } from "@angular/core";
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
-import { mainState } from './router.config';
-import { EmployeeTestComponent } from './employee.component';
-import { UIRouterModule } from '@uirouter/angular';
-//import { EmployeeService } from '../../Services/employee.service';
-var EmployeeTestConfig = /** @class */ (function () {
-    function EmployeeTestConfig() {
-    }
-    EmployeeTestConfig = __decorate([
-        Component({
-            selector: "employee-test-app",
-            template: "<ui-view></ui-view>"
-        })
-    ], EmployeeTestConfig);
-    return EmployeeTestConfig;
-}());
-export { EmployeeTestConfig };
-var INITIAL_STATES = [mainState];
-var INTIAL_COMPONENTS = [EmployeeTestComponent];
-var EmployeeTestModule = /** @class */ (function () {
-    function EmployeeTestModule() {
-    }
-    EmployeeTestModule = __decorate([
-        NgModule({
-            imports: [
-                BrowserModule,
-                HttpClientModule,
-                NgbModule,
-                UIRouterModule.forRoot({
-                    states: INITIAL_STATES,
-                    useHash: true
-                })
-            ],
-            declarations: [INTIAL_COMPONENTS],
-            providers: [
-                //EmployeeService,
-                NgbPaginationConfig
-            ],
-            bootstrap: [EmployeeTestConfig]
-        })
-    ], EmployeeTestModule);
-    return EmployeeTestModule;
-}());
-export { EmployeeTestModule };
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const core_1 = require("@angular/core");
+const platform_browser_1 = require("@angular/platform-browser");
+const http_1 = require("@angular/common/http");
+const ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+const router_config_1 = require("./router.config");
+const employee_component_1 = require("./employee.component");
+const angular_1 = require("@uirouter/angular");
+const employee_service_1 = require("../../Services/employee.service");
+let EmployeeTestConfig = class EmployeeTestConfig {
+};
+EmployeeTestConfig = tslib_1.__decorate([
+    core_1.Component({
+        selector: "employee-test-app",
+        template: "<ui-view></ui-view>"
+    })
+], EmployeeTestConfig);
+exports.EmployeeTestConfig = EmployeeTestConfig;
+const INITIAL_STATES = [router_config_1.mainState];
+const INTIAL_COMPONENTS = [EmployeeTestConfig, employee_component_1.EmployeeTestComponent];
+let EmployeeTestModule = class EmployeeTestModule {
+};
+EmployeeTestModule = tslib_1.__decorate([
+    core_1.NgModule({
+        imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpClientModule,
+            ng_bootstrap_1.NgbModule,
+            angular_1.UIRouterModule.forRoot({
+                states: INITIAL_STATES,
+                useHash: true
+            })
+        ],
+        declarations: [INTIAL_COMPONENTS],
+        providers: [
+            employee_service_1.EmployeeService,
+            ng_bootstrap_1.NgbPaginationConfig
+        ],
+        bootstrap: [EmployeeTestConfig]
+    })
+], EmployeeTestModule);
+exports.EmployeeTestModule = EmployeeTestModule;
 //# sourceMappingURL=employee.module.js.map

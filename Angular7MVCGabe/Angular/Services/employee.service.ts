@@ -19,7 +19,6 @@ export class EmployeeService {
   }
 
   getAllEmployees(queryParams: string): Observable<any> {
-
     return this.http.get<any>(`${this.Url}${queryParams}`);
   }
 }

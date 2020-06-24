@@ -1,27 +1,29 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-describe('AppComponent', function () {
-    beforeEach(async(function () {
-        TestBed.configureTestingModule({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const testing_1 = require("@angular/core/testing");
+const app_component_1 = require("./app.component");
+describe('AppComponent', () => {
+    beforeEach(testing_1.async(() => {
+        testing_1.TestBed.configureTestingModule({
             declarations: [
-                AppComponent
+                app_component_1.AppComponent
             ],
         }).compileComponents();
     }));
-    it('should create the app', function () {
-        var fixture = TestBed.createComponent(AppComponent);
-        var app = fixture.debugElement.componentInstance;
+    it('should create the app', () => {
+        const fixture = testing_1.TestBed.createComponent(app_component_1.AppComponent);
+        const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     });
-    it("should have as title 'EmployeeApp'", function () {
-        var fixture = TestBed.createComponent(AppComponent);
-        var app = fixture.debugElement.componentInstance;
+    it(`should have as title 'EmployeeApp'`, () => {
+        const fixture = testing_1.TestBed.createComponent(app_component_1.AppComponent);
+        const app = fixture.debugElement.componentInstance;
         expect(app.title).toEqual('EmployeeApp');
     });
-    it('should render title in a h1 tag', function () {
-        var fixture = TestBed.createComponent(AppComponent);
+    it('should render title in a h1 tag', () => {
+        const fixture = testing_1.TestBed.createComponent(app_component_1.AppComponent);
         fixture.detectChanges();
-        var compiled = fixture.debugElement.nativeElement;
+        const compiled = fixture.debugElement.nativeElement;
         expect(compiled.querySelector('h1').textContent).toContain('Welcome to EmployeeApp!');
     });
 });

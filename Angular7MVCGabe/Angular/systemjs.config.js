@@ -25,21 +25,25 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
             // other libraries
-            'tslib': 'npm:tslib/tslib.js',
-            'rxjs': 'npm:rxjs',
+            'tslib':                      'npm:tslib/tslib.js',
+            'rxjs':                       'npm:rxjs',
+            'rxjs/operators':             'npm:rxjs/operators/index.js',
             '@uirouter/angular':          'npm:@uirouter/angular/_bundles/ui-router-ng2.js',
             '@uirouter/core':             'npm:@uirouter/core/_bundles/ui-router-core.js',
             '@uirouter/rx':               'npm:@uirouter/rx/_bundles/ui-router-rx.js',
-            '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
+            '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.umd.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
-            EmployeeTestApp: {
+          EmployeeTestApp: {
                 main: 'main.js', defaultExtension: 'js'
-            },
-            rxjs: {
-                defaultExtension: 'js'
-            }
+          },
+          rxjs: {
+                main: 'index.js', defaultExtension: 'js'
+          },
+          "": {
+            defaultExtension: 'js'
+          }
         }
     });
 })(this);

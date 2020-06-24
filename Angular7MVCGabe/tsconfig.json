@@ -1,21 +1,27 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": "./",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es5",
+    "target": "ES2015",
+    "noImplicitAny": true,
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
-      "dom"
+      "es2015",
+      "dom",
+      "ES6",
+      "ES5"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

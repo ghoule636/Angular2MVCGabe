@@ -1,7 +1,9 @@
-import { CompanyTestConponent } from './company.component';
-export var mainState = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const company_component_1 = require("./company.component");
+exports.mainState = {
     name: "main",
     url: "",
-    component: CompanyTestConponent
+    component: company_component_1.CompanyTestConponent
 };
 //# sourceMappingURL=router.config.js.map

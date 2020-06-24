@@ -11,8 +11,8 @@
         // map tells the System loader where to look for things
         map: {
             // our app is within the app folder
-          'EmployeeTestApp': './Admin/EmployeeTestApp',
-          'CompanyTestApp': './Admin/CompanyTestApp',
+          'EmployeeTestApp': '../Angular/Admin/EmployeeTestApp',
+          'CompanyTestApp': '../Angular/Admin/CompanyTestApp',
 
             // angular bundles
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',

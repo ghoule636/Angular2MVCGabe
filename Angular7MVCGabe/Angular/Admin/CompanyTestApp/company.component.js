@@ -1,23 +1,24 @@
-import { __decorate, __metadata } from "tslib";
-import { Component } from '@angular/core';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const core_1 = require("@angular/core");
 //import { EmployeeService } from '../../Services/employee.service';
-var CompanyTestConponent = /** @class */ (function () {
+let CompanyTestConponent = class CompanyTestConponent {
     //constructor(private readonly employeeService: EmployeeService) {
-    function CompanyTestConponent() {
+    constructor() {
     }
-    CompanyTestConponent.prototype.ngOnDestroy = function () {
+    ngOnDestroy() {
         throw new Error("Method not implemented.");
-    };
-    CompanyTestConponent.prototype.ngOnInit = function () {
+    }
+    ngOnInit() {
         throw new Error("Method not implemented.");
-    };
-    CompanyTestConponent = __decorate([
-        Component({
-            templateUrl: "./company.template.html"
-        }),
-        __metadata("design:paramtypes", [])
-    ], CompanyTestConponent);
-    return CompanyTestConponent;
-}());
-export { CompanyTestConponent };
+    }
+};
+CompanyTestConponent = tslib_1.__decorate([
+    core_1.Component({
+        templateUrl: "./company.template.html"
+    }),
+    tslib_1.__metadata("design:paramtypes", [])
+], CompanyTestConponent);
+exports.CompanyTestConponent = CompanyTestConponent;
 //# sourceMappingURL=company.component.js.map

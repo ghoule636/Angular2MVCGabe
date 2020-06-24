@@ -14,7 +14,7 @@ import { EmployeeService } from '../../Services/employee.service';
 export class EmployeeTestConfig { }
 
 const INITIAL_STATES = [mainState];
-const INTIAL_COMPONENTS = [EmployeeTestComponent];
+const INTIAL_COMPONENTS = [EmployeeTestConfig, EmployeeTestComponent];
 
 @NgModule({
   imports: [

@@ -1,23 +1,24 @@
-import { __decorate, __metadata } from "tslib";
-import { Component } from "@angular/core";
-import { EmployeeService } from '../../Services/employee.service';
-var EmployeeTestComponent = /** @class */ (function () {
-    function EmployeeTestComponent(employeeService) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const core_1 = require("@angular/core");
+const employee_service_1 = require("../../Services/employee.service");
+let EmployeeTestComponent = class EmployeeTestComponent {
+    constructor(employeeService) {
         this.employeeService = employeeService;
     }
-    EmployeeTestComponent.prototype.ngOnInit = function () {
+    ngOnInit() {
         // TODO
-    };
-    EmployeeTestComponent.prototype.ngOnDestroy = function () {
+    }
+    ngOnDestroy() {
         // TODO
-    };
-    EmployeeTestComponent = __decorate([
-        Component({
-            templateUrl: "./employee.template.html"
-        }),
-        __metadata("design:paramtypes", [EmployeeService])
-    ], EmployeeTestComponent);
-    return EmployeeTestComponent;
-}());
-export { EmployeeTestComponent };
+    }
+};
+EmployeeTestComponent = tslib_1.__decorate([
+    core_1.Component({
+        templateUrl: "../Angular/Admin/EmployeeTestApp/employee.template.html"
+    }),
+    tslib_1.__metadata("design:paramtypes", [employee_service_1.EmployeeService])
+], EmployeeTestComponent);
+exports.EmployeeTestComponent = EmployeeTestComponent;
 //# sourceMappingURL=employee.component.js.map

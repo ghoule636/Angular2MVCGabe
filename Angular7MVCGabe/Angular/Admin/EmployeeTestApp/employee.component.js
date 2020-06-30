@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const core_1 = require("@angular/core");
-//import { EmployeeService } from '../../Services/employee.service';
+const employee_service_1 = require("../../Services/employee.service");
 let EmployeeTestComponent = class EmployeeTestComponent {
-    //constructor(private readonly employeeService: EmployeeService) {
-    constructor() {
+    constructor(employeeService) {
+        this.employeeService = employeeService;
     }
     ngOnInit() {
         // TODO
@@ -18,7 +18,7 @@ EmployeeTestComponent = tslib_1.__decorate([
     core_1.Component({
         templateUrl: "../Angular/Admin/EmployeeTestApp/employee.template.html"
     }),
-    tslib_1.__metadata("design:paramtypes", [])
+    tslib_1.__metadata("design:paramtypes", [employee_service_1.EmployeeService])
 ], EmployeeTestComponent);
 exports.EmployeeTestComponent = EmployeeTestComponent;
 //# sourceMappingURL=employee.component.js.map

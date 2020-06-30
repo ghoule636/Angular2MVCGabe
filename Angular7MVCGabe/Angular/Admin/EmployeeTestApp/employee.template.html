@@ -1,13 +1,23 @@
-<div class="col-sm">
-  <div class="list-unstyled col-sm-4"
-       *ngFor="let employee of allEmployees; let i = index">
-    <button type="button"
-            class="list-group-item col-sm"
-            (click)="selectEmployee(employee)">
-      {{employee.FirstName}} {{employee.Surname}}
-    </button>
-  </div>
-  <div ui-view class="col-sm-8">
-    Please select an employee!
+<div class="wrapper">
+  <nav id="sidebar"
+       style="overflow-y:scroll">
+    <div class="list-unstyled"
+         *ngFor="let employee of allEmployees; let i = index">
+      <button type="button"
+              class="list-group-item col-sm"
+              (click)="selectEmployee(employee)">
+        {{employee.FirstName}} {{employee.Surname}}
+      </button>
+    </div>
+  </nav>
+  <div id="content"
+       class="active">
+    <div class="tab-content">
+      <div ui-view>
+        <div class="well">
+          Please select an employee!
+        </div>
+      </div>
+    </div>
   </div>
 </div>

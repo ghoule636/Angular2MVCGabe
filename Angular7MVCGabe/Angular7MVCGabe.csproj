@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -203,6 +204,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\odata\AddressesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\odata\Companies1Controller.cs" />
     <Compile Include="Controllers\odata\CompaniesController.cs" />
     <Compile Include="Controllers\odata\EmployeesController.cs" />
     <Compile Include="Global.asax.cs">

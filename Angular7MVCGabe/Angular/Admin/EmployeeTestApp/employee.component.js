@@ -8,7 +8,16 @@ let EmployeeTestComponent = class EmployeeTestComponent {
         this.employeeService = employeeService;
     }
     ngOnInit() {
-        // TODO
+        this.loadEmployees();
+    }
+    loadEmployees() {
+        this.employeeService.getAllEmployees("").subscribe(result => {
+            console.log(result);
+            this.allEmployees = result.value;
+        });
+    }
+    selectEmployee(selectedEmployee) {
+        console.log(selectedEmployee);
     }
     ngOnDestroy() {
         // TODO

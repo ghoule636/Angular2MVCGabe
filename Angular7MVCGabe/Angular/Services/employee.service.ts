@@ -13,12 +13,16 @@ export interface Employee {
 
 @Injectable()
 export class EmployeeService {
-  private readonly Url = "/odata/Employee"
+  private readonly Url = "/odata/Employees"
 
   constructor(private readonly http: HttpClient) {
   }
 
   getAllEmployees(queryParams: string): Observable<any> {
     return this.http.get<any>(`${this.Url}${queryParams}`);
+  }
+
+  getEmployee(employeeID: number): Observable<any> {
+    return this.http.get<any>(`${this.Url}(${employeeID})`);
   }
 }

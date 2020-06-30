@@ -6,10 +6,13 @@ const http_1 = require("@angular/common/http");
 let EmployeeService = class EmployeeService {
     constructor(http) {
         this.http = http;
-        this.Url = "/odata/Employee";
+        this.Url = "/odata/Employees";
     }
     getAllEmployees(queryParams) {
         return this.http.get(`${this.Url}${queryParams}`);
+    }
+    getEmployee(employeeID) {
+        return this.http.get(`${this.Url}(${employeeID})`);
     }
 };
 EmployeeService = tslib_1.__decorate([

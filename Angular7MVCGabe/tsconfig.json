@@ -14,14 +14,16 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "suppressImplicitAnyIndexErrors": true,
     "lib": [
       "es2015",
       "dom",
+      "ES2015.Iterable",
       "ES6",
       "ES5"
     ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules/*"
   ]
 }

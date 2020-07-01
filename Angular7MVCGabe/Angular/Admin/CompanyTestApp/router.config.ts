@@ -1,4 +1,4 @@
-import { CompanyTestConponent } from './company.component'
+import { CompanyTestConponent } from './company.component';
 
 export const mainState = {
   name: "main",

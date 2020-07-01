@@ -1,11 +1,13 @@
 import { Component, NgModule } from "@angular/core";
-import { BrowserModule } from '@angular/platform-browser'
-import { HttpClientModule } from '@angular/common/http'
-import { UIRouterModule } from '@uirouter/angular'
-//import { EmployeeService } from '../../Services/employee.service'
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
 import { mainState } from './router.config';
 import { CompanyTestConponent } from './company.component';
-import { NgbModule, NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
+import { UIRouterModule } from '@uirouter/angular';
+//import { EmployeeService } from '../../Services/employee.service'
+
+
 
 @Component({
   selector: "company-test-app",
@@ -15,7 +17,7 @@ import { NgbModule, NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 export class CompanyTestConfig { }
 
 const INITIAL_STATES = [mainState]
-const INITAL_COMPONENTS = [CompanyTestConponent]
+const INITIAL_COMPONENTS = [CompanyTestConfig, CompanyTestConponent]
 
 @NgModule({
   imports: [
@@ -27,7 +29,7 @@ const INITAL_COMPONENTS = [CompanyTestConponent]
       useHash: true
     })
   ],
-  declarations: [INITAL_COMPONENTS],
+  declarations: [INITIAL_COMPONENTS],
   providers: [
     //EmployeeService,
     NgbPaginationConfig

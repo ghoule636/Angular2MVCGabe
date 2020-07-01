@@ -7,16 +7,16 @@ let CompanyTestConponent = class CompanyTestConponent {
     //constructor(private readonly employeeService: EmployeeService) {
     constructor() {
     }
-    ngOnDestroy() {
-        throw new Error("Method not implemented.");
-    }
     ngOnInit() {
-        throw new Error("Method not implemented.");
+        //throw new Error("Method not implemented.");
+    }
+    ngOnDestroy() {
+        //throw new Error("Method not implemented.");
     }
 };
 CompanyTestConponent = tslib_1.__decorate([
     core_1.Component({
-        templateUrl: "./company.template.html"
+        templateUrl: "../Angular/Admin/CompanyTestApp/company.template.html"
     }),
     tslib_1.__metadata("design:paramtypes", [])
 ], CompanyTestConponent);

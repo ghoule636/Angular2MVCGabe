@@ -38,6 +38,9 @@
           EmployeeTestApp: {
                 main: 'main.js', defaultExtension: 'js'
           },
+          CompanyTestApp: {
+            main: 'main.js', defaultExtension: 'js'
+          },
           rxjs: {
                 main: 'index.js', defaultExtension: 'js'
           },

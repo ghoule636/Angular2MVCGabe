@@ -4,11 +4,11 @@ const tslib_1 = require("tslib");
 const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
 const http_1 = require("@angular/common/http");
-const angular_1 = require("@uirouter/angular");
-//import { EmployeeService } from '../../Services/employee.service'
+const ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 const router_config_1 = require("./router.config");
 const company_component_1 = require("./company.component");
-const ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+const angular_1 = require("@uirouter/angular");
+//import { EmployeeService } from '../../Services/employee.service'
 let CompanyTestConfig = class CompanyTestConfig {
 };
 CompanyTestConfig = tslib_1.__decorate([
@@ -19,7 +19,7 @@ CompanyTestConfig = tslib_1.__decorate([
 ], CompanyTestConfig);
 exports.CompanyTestConfig = CompanyTestConfig;
 const INITIAL_STATES = [router_config_1.mainState];
-const INITAL_COMPONENTS = [company_component_1.CompanyTestConponent];
+const INITIAL_COMPONENTS = [CompanyTestConfig, company_component_1.CompanyTestConponent];
 let CompanyTestModule = class CompanyTestModule {
 };
 CompanyTestModule = tslib_1.__decorate([
@@ -33,7 +33,7 @@ CompanyTestModule = tslib_1.__decorate([
                 useHash: true
             })
         ],
-        declarations: [INITAL_COMPONENTS],
+        declarations: [INITIAL_COMPONENTS],
         providers: [
             //EmployeeService,
             ng_bootstrap_1.NgbPaginationConfig

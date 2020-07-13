@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -360,6 +359,7 @@
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\employee.module.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\main.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\router.config.ts" />
+    <TypeScriptCompile Include="Angular\Services\company.service.ts" />
     <TypeScriptCompile Include="Angular\Services\employee.service.ts" />
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>

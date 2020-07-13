@@ -1,27 +1,30 @@
-﻿using System.Data;
+using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
 using Angular2MVC.Model.db;
+using Castle.Core.Logging;
 using Microsoft.AspNet.OData;
 
 namespace Angular2MVCGabe.Controllers.odata
 {
-    /*
-    The WebApiConfig class may require additional changes to add a route for this controller. Merge these statements into the Register method of the WebApiConfig class as applicable. Note that OData URLs are case sensitive.
+  /*
+  The WebApiConfig class may require additional changes to add a route for this controller. Merge these statements into the Register method of the WebApiConfig class as applicable. Note that OData URLs are case sensitive.
 
-    using System.Web.Http.OData.Builder;
-    using System.Web.Http.OData.Extensions;
-    using Angular2MVC.Model.db;
-    ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Company>("Companies");
-    builder.EntitySet<Employee>("Employees"); 
-    config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
-    */
-    public class CompaniesController : ODataController
+  using System.Web.Http.OData.Builder;
+  using System.Web.Http.OData.Extensions;
+  using Angular2MVC.Model.db;
+  ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+  builder.EntitySet<Employee>("Employees");
+  builder.EntitySet<Address>("Addresses");
+  builder.EntitySet<Company>("Companies"); 
+  config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
+  */
+  public class CompaniesController : ODataController
     {
         private EntityContext db = new EntityContext();
+        public ILogger Logger { get; set; } = NullLogger.Instance;
 
         // GET: odata/Companies
         [EnableQuery]
@@ -44,6 +47,7 @@ namespace Angular2MVCGabe.Controllers.odata
 
             if (!ModelState.IsValid)
             {
+                Logger.WarnFormat("Company {0} was attempted to be added to the database. It had the following ModelState: {1}", patch, ModelState);
                 return BadRequest(ModelState);
             }
 
@@ -137,6 +141,7 @@ namespace Angular2MVCGabe.Controllers.odata
 
             db.Companies.Remove(company);
             db.SaveChanges();
+            Logger.InfoFormat("{0} was removed from the database!", company);
 
             return StatusCode(HttpStatusCode.NoContent);
         }

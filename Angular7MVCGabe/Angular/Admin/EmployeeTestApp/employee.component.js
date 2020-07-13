@@ -11,7 +11,7 @@ let EmployeeTestComponent = class EmployeeTestComponent {
         this.loadEmployees();
     }
     loadEmployees() {
-        this.employeeService.getAllEmployees("").subscribe(result => {
+        this.employeeService.getAllEmployees("?$expand=Address&$count=true").subscribe(result => {
             console.log(result);
             this.allEmployees = result.value;
         });

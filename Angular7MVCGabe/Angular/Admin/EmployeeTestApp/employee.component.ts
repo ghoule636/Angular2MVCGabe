@@ -16,7 +16,7 @@ export class EmployeeTestComponent implements OnInit, OnDestroy {
   }
 
   private loadEmployees(): void {
-    this.employeeService.getAllEmployees("").subscribe(result => {
+    this.employeeService.getAllEmployees("?$expand=Address&$count=true").subscribe(result => {
       console.log(result);
       this.allEmployees = result.value;
     });

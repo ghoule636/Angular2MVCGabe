@@ -5,7 +5,7 @@ import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
 import { mainState } from './router.config';
 import { CompanyTestConponent } from './company.component';
 import { UIRouterModule } from '@uirouter/angular';
-//import { EmployeeService } from '../../Services/employee.service'
+import { CompanyService } from '../../Services/company.service'
 
 
 
@@ -31,7 +31,7 @@ const INITIAL_COMPONENTS = [CompanyTestConfig, CompanyTestConponent]
   ],
   declarations: [INITIAL_COMPONENTS],
   providers: [
-    //EmployeeService,
+    CompanyService,
     NgbPaginationConfig
   ],
   bootstrap: [CompanyTestConfig]

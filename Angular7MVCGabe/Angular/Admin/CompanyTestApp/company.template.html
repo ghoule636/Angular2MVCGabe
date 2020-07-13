@@ -1,1 +1,23 @@
-<div>Hello world!</div>
+<div class="wrapper">
+  <nav id="sidebar"
+       style="overflow-y:scroll">
+    <div class="list-unstyled"
+         *ngFor="let company of allCompanies; let i = index">
+      <button type="button"
+              class="list-group-item col-sm"
+              (click)="selectCompany(company)">
+        {{company.Name}}
+      </button>
+    </div>
+  </nav>
+</div>
+<div id="conten"
+     class="active">
+  <div class="tab-content">
+    <div ui-view>
+      <div class="well">
+        Please Select a Company
+      </div>
+    </div>
+  </div>
+</div>

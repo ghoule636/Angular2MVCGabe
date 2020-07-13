@@ -8,7 +8,7 @@ const ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 const router_config_1 = require("./router.config");
 const company_component_1 = require("./company.component");
 const angular_1 = require("@uirouter/angular");
-//import { EmployeeService } from '../../Services/employee.service'
+const company_service_1 = require("../../Services/company.service");
 let CompanyTestConfig = class CompanyTestConfig {
 };
 CompanyTestConfig = tslib_1.__decorate([
@@ -35,7 +35,7 @@ CompanyTestModule = tslib_1.__decorate([
         ],
         declarations: [INITIAL_COMPONENTS],
         providers: [
-            //EmployeeService,
+            company_service_1.CompanyService,
             ng_bootstrap_1.NgbPaginationConfig
         ],
         bootstrap: [CompanyTestConfig]

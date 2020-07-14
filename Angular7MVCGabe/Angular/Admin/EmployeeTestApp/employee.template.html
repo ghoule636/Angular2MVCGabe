@@ -9,9 +9,15 @@
         {{employee.FirstName}} {{employee.Surname}}
       </button>
     </div>
+    <div class="col-sm-12 element-space">
+      <ngb-pagination class="pagination-sm"
+                      (pageChange)="pageChanged($event)"
+                      [(page)]="currentPage"
+                      [collectionSize]="totalItems">
+      </ngb-pagination>
+    </div>
   </nav>
-  <div id="content"
-       class="active">
+  <div id="content">
     <div class="tab-content">
       <div ui-view>
         <div class="well">

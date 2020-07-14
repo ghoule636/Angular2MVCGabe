@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -217,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Angular\Admin\CompanyTestApp\company.template.html" />
+    <Content Include="Angular\Admin\EmployeeTestApp\edit-employee.template.html" />
     <Content Include="Angular\EmployeeApp\e2e\protractor.conf.js" />
     <Content Include="Angular\EmployeeApp\e2e\src\app.e2e-spec.ts" />
     <Content Include="Angular\EmployeeApp\e2e\src\app.po.ts" />
@@ -352,6 +354,7 @@
     <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\company.module.ts" />
     <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\main.ts" />
     <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\router.config.ts" />
+    <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\edit-employee.component.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.ts" />
     <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.module.ts" />

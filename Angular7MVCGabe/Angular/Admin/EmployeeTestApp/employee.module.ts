@@ -2,10 +2,12 @@ import { Component, NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
-import { mainState } from './router.config';
+import { mainState, editEmployeeState } from './router.config';
 import { EmployeeTestComponent } from './employee.component';
 import { UIRouterModule } from '@uirouter/angular';
 import { EmployeeService } from '../../Services/employee.service';
+import { EditEmployeeComponent } from './edit-employee.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: "employee-test-app",
@@ -13,14 +15,16 @@ import { EmployeeService } from '../../Services/employee.service';
 })
 export class EmployeeTestConfig { }
 
-const INITIAL_STATES = [mainState];
-const INTIAL_COMPONENTS = [EmployeeTestConfig, EmployeeTestComponent];
+const INITIAL_STATES = [mainState, editEmployeeState];
+const INTIAL_COMPONENTS = [EmployeeTestConfig, EmployeeTestComponent, EditEmployeeComponent];
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
+    FormsModule,
     UIRouterModule.forRoot({
       states: INITIAL_STATES,
       useHash: true

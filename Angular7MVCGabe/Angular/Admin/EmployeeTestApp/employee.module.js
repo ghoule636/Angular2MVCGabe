@@ -9,6 +9,8 @@ const router_config_1 = require("./router.config");
 const employee_component_1 = require("./employee.component");
 const angular_1 = require("@uirouter/angular");
 const employee_service_1 = require("../../Services/employee.service");
+const edit_employee_component_1 = require("./edit-employee.component");
+const forms_1 = require("@angular/forms");
 let EmployeeTestConfig = class EmployeeTestConfig {
 };
 EmployeeTestConfig = tslib_1.__decorate([
@@ -18,8 +20,8 @@ EmployeeTestConfig = tslib_1.__decorate([
     })
 ], EmployeeTestConfig);
 exports.EmployeeTestConfig = EmployeeTestConfig;
-const INITIAL_STATES = [router_config_1.mainState];
-const INTIAL_COMPONENTS = [EmployeeTestConfig, employee_component_1.EmployeeTestComponent];
+const INITIAL_STATES = [router_config_1.mainState, router_config_1.editEmployeeState];
+const INTIAL_COMPONENTS = [EmployeeTestConfig, employee_component_1.EmployeeTestComponent, edit_employee_component_1.EditEmployeeComponent];
 let EmployeeTestModule = class EmployeeTestModule {
 };
 EmployeeTestModule = tslib_1.__decorate([
@@ -28,6 +30,8 @@ EmployeeTestModule = tslib_1.__decorate([
             platform_browser_1.BrowserModule,
             http_1.HttpClientModule,
             ng_bootstrap_1.NgbModule,
+            forms_1.ReactiveFormsModule,
+            forms_1.FormsModule,
             angular_1.UIRouterModule.forRoot({
                 states: INITIAL_STATES,
                 useHash: true

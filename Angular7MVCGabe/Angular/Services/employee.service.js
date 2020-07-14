@@ -3,10 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
+const rxjs_1 = require("rxjs");
 let EmployeeService = class EmployeeService {
     constructor(http) {
         this.http = http;
         this.Url = "/odata/Employees";
+        this.currentEmployee = new rxjs_1.Subject();
+        this.employeeLoaded$ = this.currentEmployee.asObservable();
+    }
+    setCurrentEmployee(employee) {
+        this.currentEmployee.next(employee);
     }
     getAllEmployees(queryParams) {
         return this.http.get(`${this.Url}${queryParams}`);

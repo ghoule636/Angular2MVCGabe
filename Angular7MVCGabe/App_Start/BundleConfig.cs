@@ -27,6 +27,7 @@ namespace Angular2MVCGabe
                       "~/Content/site.css",
                       "~/Content/simpleSidebar.css",
                       "~/Content/gabeStyles.css",
+                      "~/node_modules/primeng-lts/primeng.min.css",
                       "~/node_modules/primeicons/primeicons.css"));
 
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(

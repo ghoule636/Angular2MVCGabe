@@ -16,6 +16,12 @@
             'PartApp': '../Angular/Admin/PartApp',
 
             // angular bundles
+            '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
+            '@angular/cdk/scrolling': 'npm:@angular/cdk/bundles/cdk-scrolling.umd.js',
+            '@angular/cdk/coercion': 'npm:@angular/cdk/bundles/cdk-coercion.umd.js',
+            '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
+            '@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk-bidi.umd.js',
+            '@angular/cdk/collections': 'npm:@angular/cdk/bundles/cdk-collections.umd.js',
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
             '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
             '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
@@ -33,7 +39,7 @@
             '@uirouter/core':             'npm:@uirouter/core/_bundles/ui-router-core.js',
             '@uirouter/rx':               'npm:@uirouter/rx/_bundles/ui-router-rx.js',
             '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.umd.js',
-            'primeng': 'npm:primeng'
+            'primeng-lts': 'npm:primeng-lts'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

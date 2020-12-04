@@ -7,7 +7,7 @@ import { UIRouterModule } from '@uirouter/angular';
 import { PartService } from '../../Services/part.service';
 import { PartComponent } from './part.component';
 import { mainState } from './router.config';
-import { TreeModule } from 'primeng/tree';
+import { TreeModule } from 'primeng-lts/tree';
 
 @Component({
   selector: "part-app",

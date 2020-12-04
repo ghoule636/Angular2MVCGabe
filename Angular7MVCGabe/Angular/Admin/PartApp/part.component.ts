@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TreeNode } from 'primeng/api';
+import { TreeNode } from 'primeng-lts/api';
 
 @Component({
   templateUrl: "../Angular/Admin/PartApp/part.template.html"

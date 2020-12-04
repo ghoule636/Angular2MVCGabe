@@ -11,7 +11,7 @@ const angular_1 = require("@uirouter/angular");
 const part_service_1 = require("../../Services/part.service");
 const part_component_1 = require("./part.component");
 const router_config_1 = require("./router.config");
-const tree_1 = require("primeng/tree");
+const tree_1 = require("primeng-lts/tree");
 let PartConfig = class PartConfig {
 };
 PartConfig = tslib_1.__decorate([

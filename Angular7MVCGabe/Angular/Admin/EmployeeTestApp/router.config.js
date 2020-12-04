@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.editEmployeeState = exports.mainState = void 0;
 const employee_component_1 = require("./employee.component");
 const edit_employee_component_1 = require("./edit-employee.component");
 const angular_1 = require("@uirouter/angular");

@@ -12,6 +12,7 @@ namespace Angular2MVC.Model
             builder.EntitySet<Employee>("Employees");
             builder.EntitySet<Address>("Addresses");
             builder.EntitySet<Company>("Companies");
+            builder.EntitySet<Part>("Parts");
 
             return builder.GetEdmModel();
         }

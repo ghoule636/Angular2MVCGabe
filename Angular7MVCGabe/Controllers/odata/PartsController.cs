@@ -1,13 +1,12 @@
-  using System.Data;
+using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
 using Angular2MVC.Model.db;
-using Castle.Core.Logging;
 using Microsoft.AspNet.OData;
 
-namespace Angular2MVCGabe.Controllers.odata
+namespace Angular7MVCGabe.Controllers.odata
 {
     /*
     The WebApiConfig class may require additional changes to add a route for this controller. Merge these statements into the Register method of the WebApiConfig class as applicable. Note that OData URLs are case sensitive.
@@ -16,49 +15,44 @@ namespace Angular2MVCGabe.Controllers.odata
     using System.Web.Http.OData.Extensions;
     using Angular2MVC.Model.db;
     ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Employee>("Employees");
-    builder.EntitySet<Address>("Addresses"); 
-    builder.EntitySet<Company>("Companies"); 
+    builder.EntitySet<Part>("Parts");
     config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
     */
-    public class EmployeesController : ODataController
+    public class PartsController : ODataController
     {
         private EntityContext db = new EntityContext();
-        public ILogger Logger { get; set; } = NullLogger.Instance;
 
-        // GET: odata/Employees
+        // GET: odata/Parts
         [EnableQuery]
-        public IQueryable<Employee> GetEmployees()
+        public IQueryable<Part> GetParts()
         {
-            db.Database.Initialize(true);
-            return db.Employees;
+            return db.Parts;
         }
 
-        // GET: odata/Employees(5)
+        // GET: odata/Parts(5)
         [EnableQuery]
-        public SingleResult<Employee> GetEmployee([FromODataUri] int key)
+        public SingleResult<Part> GetPart([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Employees.Where(employee => employee.ID == key));
+            return SingleResult.Create(db.Parts.Where(part => part.ID == key));
         }
 
-        // PUT: odata/Employees(5)
-        public IHttpActionResult Put([FromODataUri] int key, Delta<Employee> patch)
+        // PUT: odata/Parts(5)
+        public IHttpActionResult Put([FromODataUri] int key, Delta<Part> patch)
         {
             //Validate(patch.GetEntity());
 
             if (!ModelState.IsValid)
             {
-                Logger.WarnFormat("Employee {0} was attempted to be added to the database. It had the following ModelState: {1}", patch, ModelState);
                 return BadRequest(ModelState);
             }
 
-            Employee employee = db.Employees.Find(key);
-            if (employee == null)
+            Part part = db.Parts.Find(key);
+            if (part == null)
             {
                 return NotFound();
             }
 
-            patch.Put(employee);
+            patch.Put(part);
 
             try
             {
@@ -66,7 +60,7 @@ namespace Angular2MVCGabe.Controllers.odata
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmployeeExists(key))
+                if (!PartExists(key))
                 {
                     return NotFound();
                 }
@@ -76,26 +70,26 @@ namespace Angular2MVCGabe.Controllers.odata
                 }
             }
 
-            return Updated(employee);
+            return Updated(part);
         }
 
-        // POST: odata/Employees
-        public IHttpActionResult Post(Employee employee)
+        // POST: odata/Parts
+        public IHttpActionResult Post(Part part)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Employees.Add(employee);
+            db.Parts.Add(part);
             db.SaveChanges();
 
-            return Created(employee);
+            return Created(part);
         }
 
-        // PATCH: odata/Employees(5)
+        // PATCH: odata/Parts(5)
         [AcceptVerbs("PATCH", "MERGE")]
-        public IHttpActionResult Patch([FromODataUri] int key, Delta<Employee> patch)
+        public IHttpActionResult Patch([FromODataUri] int key, Delta<Part> patch)
         {
             //Validate(patch.GetEntity());
 
@@ -104,13 +98,13 @@ namespace Angular2MVCGabe.Controllers.odata
                 return BadRequest(ModelState);
             }
 
-            Employee employee = db.Employees.Find(key);
-            if (employee == null)
+            Part part = db.Parts.Find(key);
+            if (part == null)
             {
                 return NotFound();
             }
 
-            patch.Patch(employee);
+            patch.Patch(part);
 
             try
             {
@@ -118,7 +112,7 @@ namespace Angular2MVCGabe.Controllers.odata
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmployeeExists(key))
+                if (!PartExists(key))
                 {
                     return NotFound();
                 }
@@ -128,37 +122,29 @@ namespace Angular2MVCGabe.Controllers.odata
                 }
             }
 
-            return Updated(employee);
+            return Updated(part);
         }
 
-        // DELETE: odata/Employees(5)
+        // DELETE: odata/Parts(5)
         public IHttpActionResult Delete([FromODataUri] int key)
         {
-            Employee employee = db.Employees.Find(key);
-            if (employee == null)
+            Part part = db.Parts.Find(key);
+            if (part == null)
             {
                 return NotFound();
             }
 
-            db.Employees.Remove(employee);
+            db.Parts.Remove(part);
             db.SaveChanges();
-            Logger.InfoFormat("{0} was removed from the database!", employee);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET: odata/Employees(5)/Address
+        // GET: odata/Parts(5)/ParentPart
         [EnableQuery]
-        public SingleResult<Address> GetAddress([FromODataUri] int key)
+        public SingleResult<Part> GetParentPart([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Employees.Where(m => m.ID == key).Select(m => m.Address));
-        }
-
-        // GET: odata/Employees(5)/Company
-        [EnableQuery]
-        public SingleResult<Company> GetCompany([FromODataUri] int key)
-        {
-            return SingleResult.Create(db.Employees.Where(m => m.ID == key).Select(m => m.Company));
+            return SingleResult.Create(db.Parts.Where(m => m.ID == key).Select(m => m.ParentPart));
         }
 
         protected override void Dispose(bool disposing)
@@ -170,10 +156,9 @@ namespace Angular2MVCGabe.Controllers.odata
             base.Dispose(disposing);
         }
 
-        private bool EmployeeExists(int key)
+        private bool PartExists(int key)
         {
-            return db.Employees.Count(e => e.ID == key) > 0;
+            return db.Parts.Count(e => e.ID == key) > 0;
         }
-
     }
 }

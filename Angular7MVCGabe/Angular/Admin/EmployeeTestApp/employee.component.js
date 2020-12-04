@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmployeeTestComponent = void 0;
 const tslib_1 = require("tslib");
 const core_1 = require("@angular/core");
 const employee_service_1 = require("../../Services/employee.service");

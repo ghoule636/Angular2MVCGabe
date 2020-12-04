@@ -1,0 +1,7 @@
+<p-tree [value]="treeData"
+        selectionMode="single"
+        [(selection)]="selectedNode"
+        (onNodeSelect)="nodeSelect($event)"
+        [filter]="true"
+        (onFilter)="onFilter($event)">
+</p-tree>

@@ -27,7 +27,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,10 +61,10 @@
       <HintPath>..\packages\Castle.Windsor.5.0.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -207,6 +207,7 @@
     <Compile Include="Controllers\odata\Companies1Controller.cs" />
     <Compile Include="Controllers\odata\CompaniesController.cs" />
     <Compile Include="Controllers\odata\EmployeesController.cs" />
+    <Compile Include="Controllers\odata\PartsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,19 +220,10 @@
   <ItemGroup>
     <Content Include="Angular\Admin\CompanyTestApp\company.template.html" />
     <Content Include="Angular\Admin\EmployeeTestApp\edit-employee.template.html" />
-    <Content Include="Angular\EmployeeApp\e2e\protractor.conf.js" />
-    <Content Include="Angular\EmployeeApp\e2e\src\app.e2e-spec.ts" />
-    <Content Include="Angular\EmployeeApp\e2e\src\app.po.ts" />
-    <Content Include="Angular\EmployeeApp\src\app\app.component.html" />
-    <Content Include="Angular\EmployeeApp\src\environments\environment.prod.ts" />
-    <Content Include="Angular\EmployeeApp\src\environments\environment.ts" />
-    <Content Include="Angular\EmployeeApp\src\favicon.ico" />
-    <Content Include="Angular\EmployeeApp\src\index.html" />
     <Content Include="Angular\Admin\EmployeeTestApp\employee.template.html" />
+    <Content Include="Angular\Admin\PartApp\part.template.html" />
     <Content Include="Angular\Shared\karma.conf.js" />
-    <Content Include="Angular\EmployeeApp\src\main.ts" />
     <Content Include="Angular\Shared\polyfills.ts" />
-    <Content Include="Angular\EmployeeApp\src\styles.css" />
     <Content Include="Angular\Shared\test.ts" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -280,11 +272,9 @@
     <Content Include=".editorconfig" />
     <Content Include=".gitignore" />
     <Content Include="Angular\Shared\angular.json" />
-    <Content Include="Angular\EmployeeApp\e2e\tsconfig.e2e.json" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="Angular\EmployeeApp\src\browserslist" />
     <Content Include="Angular\Shared\tsconfig.spec.json" />
     <Content Include="tsconfig.json" />
     <Content Include="Angular\Shared\tslint.json" />
@@ -334,6 +324,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\Part.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,15 +346,17 @@
     <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\main.ts" />
     <TypeScriptCompile Include="Angular\Admin\CompanyTestApp\router.config.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\edit-employee.component.ts" />
-    <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.spec.ts" />
-    <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.component.ts" />
-    <TypeScriptCompile Include="Angular\EmployeeApp\src\app\app.module.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\employee.component.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\employee.module.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\main.ts" />
     <TypeScriptCompile Include="Angular\Admin\EmployeeTestApp\router.config.ts" />
+    <TypeScriptCompile Include="Angular\Admin\PartApp\main.ts" />
+    <TypeScriptCompile Include="Angular\Admin\PartApp\part.component.ts" />
+    <TypeScriptCompile Include="Angular\Admin\PartApp\part.module.ts" />
+    <TypeScriptCompile Include="Angular\Admin\PartApp\router.config.ts" />
     <TypeScriptCompile Include="Angular\Services\company.service.ts" />
     <TypeScriptCompile Include="Angular\Services\employee.service.ts" />
+    <TypeScriptCompile Include="Angular\Services\part.service.ts" />
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>

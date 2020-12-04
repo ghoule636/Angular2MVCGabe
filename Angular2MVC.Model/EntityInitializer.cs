@@ -27,6 +27,10 @@ namespace Angular2MVC.Model
             // Employees
             GetEmployees().ForEach(e => context.Employees.Add(e));
 
+            // Parts 
+            // Fuck don't know how to make this stupid thing work something wrong with my setup of foreign keys and I don't have time
+            // to fix it! 
+            //GetParts().ForEach(p => context.Parts.Add(p));
 
             base.Seed(context);
         }
@@ -59,10 +63,9 @@ namespace Angular2MVC.Model
                     City = MockData.Address.City(),
                     Country = MockData.Address.Country(),
                     State = MockData.Address.State(),
-                    ZipCode = MockData.Address.ZipCode()
+                    ZipCode = MockData.Address.ZipCode()                    
                 });
             }
- 
             return _addresses;
         }
  
@@ -82,8 +85,32 @@ namespace Angular2MVC.Model
                     Email = MockData.Internet.Email(),
                 });
             }
- 
             return _employees;
+        }
+
+        private static List<Part> GetParts()
+        {
+            List<Part> _parts = new List<Part>();
+
+            for (int i = 1; i <= 500; i++)
+            {
+                var tempPart = new Part()
+                {
+                    ID = i,
+                    PartName = MockData.Product.ProductName(),
+                    ParentPartID = 1
+                };
+                if (i > 8 && i < 250)
+                {
+                    tempPart.ParentPartID = i % 8;
+                } else if (i > 250)
+                {
+                    tempPart.ParentPartID = i % 100 + 8;
+                }
+                _parts.Add(tempPart);
+            }
+
+            return _parts;
         }
 
     }

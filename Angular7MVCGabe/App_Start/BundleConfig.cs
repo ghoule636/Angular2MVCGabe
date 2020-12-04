@@ -1,4 +1,4 @@
-﻿using System.Web;
+using System.Web;
 using System.Web.Optimization;
 
 namespace Angular2MVCGabe
@@ -26,7 +26,8 @@ namespace Angular2MVCGabe
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/simpleSidebar.css",
-                      "~/Content/gabeStyles.css"));
+                      "~/Content/gabeStyles.css",
+                      "~/node_modules/primeicons/primeicons.css"));
 
             bundles.Add(new StyleBundle("~/Content/fontawesome").Include(
                 "~/Content/font-awesome.css"

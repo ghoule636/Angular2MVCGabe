@@ -13,5 +13,10 @@ namespace Angular2MVCGabe.Controllers
     {
       return View();
     }
+
+    public ActionResult Part()
+    {
+      return View();
+    }
   }
 }

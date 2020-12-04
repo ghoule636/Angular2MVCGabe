@@ -139,6 +139,8 @@
     <Compile Include="db\Company.cs" />
     <Compile Include="db\Employee.cs" />
     <Compile Include="db\EntityContext.cs" />
+    <Compile Include="db\Part.cs" />
+    <Compile Include="db\Product.cs" />
     <Compile Include="EntityInitializer.cs" />
     <Compile Include="ODataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

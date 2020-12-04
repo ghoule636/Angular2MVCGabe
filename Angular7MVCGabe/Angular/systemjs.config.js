@@ -11,8 +11,9 @@
         // map tells the System loader where to look for things
         map: {
             // our app is within the app folder
-          'EmployeeTestApp': '../Angular/Admin/EmployeeTestApp',
-          'CompanyTestApp': '../Angular/Admin/CompanyTestApp',
+            'EmployeeTestApp': '../Angular/Admin/EmployeeTestApp',
+            'CompanyTestApp': '../Angular/Admin/CompanyTestApp',
+            'PartApp': '../Angular/Admin/PartApp',
 
             // angular bundles
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -31,7 +32,8 @@
             '@uirouter/angular':          'npm:@uirouter/angular/_bundles/ui-router-ng2.js',
             '@uirouter/core':             'npm:@uirouter/core/_bundles/ui-router-core.js',
             '@uirouter/rx':               'npm:@uirouter/rx/_bundles/ui-router-rx.js',
-            '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.umd.js'
+            '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.umd.js',
+            'primeng': 'npm:primeng'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -39,6 +41,9 @@
                 main: 'main.js', defaultExtension: 'js'
           },
           CompanyTestApp: {
+            main: 'main.js', defaultExtension: 'js'
+          },
+          PartApp: {
             main: 'main.js', defaultExtension: 'js'
           },
           rxjs: {

@@ -1,7 +1,13 @@
-<p-tree [value]="treeData"
-        selectionMode="single"
-        [(selection)]="selectedNode"
-        (onNodeSelect)="nodeSelect($event)"
-        [filter]="true"
-        (onFilter)="onFilter($event)">
-</p-tree>
+<button type="button" class="btn btn-secondary" (click)="expandORcollapse(true, treeData)">Expand all</button>
+<button type="button" class="btn btn-secondary" (click)="expandORcollapse(false, treeData)">Collapse all</button>
+<form [formGroup]="treeForm">
+  <div class="form-group">
+    <input class="form-control"
+            formControlName="TreeSearch" />
+    <p-tree [value]="treeData"
+            selectionMode="single"
+            [(selection)]="selectedNode"
+            (onNodeSelect)="nodeSelect($event)">
+    </p-tree>
+  </div>
+</form>

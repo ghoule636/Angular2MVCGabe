@@ -107,6 +107,6 @@ a[data-toggle="collapse"] {
 }
 
 .ui-treenode-content-selected {
-    color: greenyellow !important;
-    border: 5px solid red;
+    border: .2rem outset grey;
+    border-radius: 10px
 }

@@ -4,13 +4,14 @@ exports.PartComponent = void 0;
 const tslib_1 = require("tslib");
 const core_1 = require("@angular/core");
 const forms_1 = require("@angular/forms");
-const operators_1 = require("rxjs/operators");
 let PartComponent = class PartComponent {
     constructor(fb) {
         this.fb = fb;
         this.searchText = "Search";
+        this.lastSearch = "";
         this.nodeFound = false;
         this.expandParent = false;
+        this.keepGoing = false;
         this.treeData = [
             {
                 "label": "Documents",
@@ -66,12 +67,18 @@ let PartComponent = class PartComponent {
         this.treeForm = this.fb.group({
             TreeSearch: this.treeSearchCtrl
         });
-        const treeSearch = this.treeForm.get("TreeSearch");
-        treeSearch.valueChanges.pipe(operators_1.debounceTime(this.debounceTime)).subscribe(value => this.searchTree(treeSearch.value));
     }
     nodeSelect(event) {
         console.log(event);
     }
+    onSubmit() {
+        this.searchTree(this.treeSearchCtrl.value);
+    }
+    /**
+     * Will expand or collapse all nodes and children in the given list of nodes.
+     * @param expand - True to expand false to collapse.
+     * @param nodes - List of nodes to collapse or expand.
+     */
     expandORcollapse(expand, nodes) {
         for (let node of nodes) {
             if (node.children) {
@@ -96,22 +103,55 @@ let PartComponent = class PartComponent {
             }
         }
     }
+    /**
+     * Initiates the recursive tree search.
+     * @param search - The string being searched for.
+     */
     searchTree(search) {
-        // need to check if we already have the searched for node selected. if it is move to the next
-        // node with the same characters.
         this.nodeFound = false;
+        // This if statement checks if we need to continue searching
+        // for the next occurance of the search string.
+        if (this.lastSearch == search) {
+            this.keepGoing = true;
+        }
+        else {
+            this.lastSearch = search;
+        }
+        let previousNode = this.selectedNode; // <- Used to check if we have hit the bottom of the tree
         this.DFSRecursive(this.treeData, search.toLowerCase());
+        // This if statement will search the tree again in the case we have hit the bottom
+        // of the tree in the search and want to wrap back to the top.
+        if (previousNode == this.selectedNode) {
+            this.keepGoing = false;
+            this.DFSRecursive(this.treeData, search.toLowerCase());
+        }
     }
+    /**
+     * Recursive function to search the tree for a given string.
+     * @param tree - TreeNode[] the tree being iterated over.
+     * See Documentation on primeng trees here: https://www.primefaces.org/primeng/v7.2.6-lts/#/tree
+     * @param search - The string being searched for.
+     */
     DFSRecursive(tree, search) {
         let i = 0;
         while (!this.nodeFound && i < tree.length) {
             let node = tree[i];
             if (node.label.toLowerCase().includes(search)) {
-                this.nodeFound = true;
-                if (node.parent) {
+                if (node != this.selectedNode && !this.keepGoing) {
+                    this.nodeFound = true;
                     this.expandParents(node);
+                    this.selectedNode = node;
+                    this.nodeSelect(node);
                 }
-                this.selectedNode = node;
+                else if (node == this.selectedNode) {
+                    this.keepGoing = false;
+                    if (node.children) {
+                        this.DFSRecursive(node.children, search);
+                    }
+                }
+                else if (node.children) {
+                    this.DFSRecursive(node.children, search);
+                }
             }
             else if (node.children) {
                 this.DFSRecursive(node.children, search);
@@ -120,6 +160,10 @@ let PartComponent = class PartComponent {
         }
         ;
     }
+    /**
+     * Helper function that will expand the parents of a given node. Will recursively expand ancestors.
+     * @param node - The node whose parents need to be expanded.
+     */
     expandParents(node) {
         if (node.parent) {
             node.parent.expanded = true;

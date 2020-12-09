@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { TreeNode } from 'primeng-lts/api';
-import { debounceTime } from 'rxjs/operators';
 
 @Component({
   templateUrl: "../Angular/Admin/PartApp/part.template.html"
@@ -11,15 +10,19 @@ export class PartComponent implements OnInit, OnDestroy {
   selectedNode: TreeNode;
   treeForm: FormGroup;
   treeSearchCtrl: FormControl;
-  searchText: "Search";
+  searchText: string;
   debounceTime: 500;
   nodeFound: boolean;
   expandParent: boolean;
+  keepGoing: boolean;
+  lastSearch: string;
 
   constructor(private readonly fb: FormBuilder) {
     this.searchText = "Search";
+    this.lastSearch = "";
     this.nodeFound = false;
     this.expandParent = false;
+    this.keepGoing = false;
     this.treeData = [
       {
         "label": "Documents",
@@ -75,16 +78,21 @@ export class PartComponent implements OnInit, OnDestroy {
     this.treeForm = this.fb.group({
       TreeSearch: this.treeSearchCtrl
     });
-
-    const treeSearch = this.treeForm.get("TreeSearch");
-    treeSearch.valueChanges.pipe(debounceTime(this.debounceTime)).subscribe(value =>
-      this.searchTree(treeSearch.value));
   }
 
   nodeSelect(event: any): void {
     console.log(event);
   }
 
+  onSubmit(): void {
+    this.searchTree(this.treeSearchCtrl.value);
+  }
+
+  /**
+   * Will expand or collapse all nodes and children in the given list of nodes.
+   * @param expand - True to expand false to collapse.
+   * @param nodes - List of nodes to collapse or expand.
+   */
   expandORcollapse(expand: boolean, nodes: TreeNode[]): void {
     for (let node of nodes) {
       if (node.children) {
@@ -111,23 +119,53 @@ export class PartComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Initiates the recursive tree search.
+   * @param search - The string being searched for.
+   */
   private searchTree(search: string): void {
-    // need to check if we already have the searched for node selected. if it is move to the next
-    // node with the same characters.
     this.nodeFound = false
+    // This if statement checks if we need to continue searching
+    // for the next occurance of the search string.
+    if (this.lastSearch == search) {
+      this.keepGoing = true;
+    } else {
+      this.lastSearch = search;
+    }
+    let previousNode = this.selectedNode; // <- Used to check if we have hit the bottom of the tree
     this.DFSRecursive(this.treeData, search.toLowerCase());
+    // This if statement will search the tree again in the case we have hit the bottom
+    // of the tree in the search and want to wrap back to the top.
+    if (previousNode == this.selectedNode) {
+      this.keepGoing = false;
+      this.DFSRecursive(this.treeData, search.toLowerCase());
+    }
   }
 
+  /**
+   * Recursive function to search the tree for a given string.
+   * @param tree - TreeNode[] the tree being iterated over.
+   * See Documentation on primeng trees here: https://www.primefaces.org/primeng/v7.2.6-lts/#/tree
+   * @param search - The string being searched for.
+   */
   private DFSRecursive(tree: TreeNode[], search: string): void {
     let i = 0;
     while (!this.nodeFound && i < tree.length) {
       let node = tree[i];
       if (node.label.toLowerCase().includes(search)) {
-        this.nodeFound = true;
-        if (node.parent) {
+        if (node != this.selectedNode && !this.keepGoing) {
+          this.nodeFound = true;
           this.expandParents(node);
+          this.selectedNode = node;
+          this.nodeSelect(node);
+        } else if (node == this.selectedNode) {
+          this.keepGoing = false;
+          if (node.children) {
+            this.DFSRecursive(node.children, search);
+          }
+        } else if (node.children) {
+          this.DFSRecursive(node.children, search);
         }
-        this.selectedNode = node;
       } else if (node.children) {
         this.DFSRecursive(node.children, search);
       }
@@ -135,6 +173,10 @@ export class PartComponent implements OnInit, OnDestroy {
     };
   }
 
+  /**
+   * Helper function that will expand the parents of a given node. Will recursively expand ancestors.
+   * @param node - The node whose parents need to be expanded.
+   */
   private expandParents(node: TreeNode) {
     if (node.parent) {
       node.parent.expanded = true;

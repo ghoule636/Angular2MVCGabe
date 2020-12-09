@@ -1,6 +1,6 @@
 <button type="button" class="btn btn-secondary" (click)="expandORcollapse(true, treeData)">Expand all</button>
 <button type="button" class="btn btn-secondary" (click)="expandORcollapse(false, treeData)">Collapse all</button>
-<form [formGroup]="treeForm">
+<form [formGroup]="treeForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <input class="form-control"
             formControlName="TreeSearch" />
